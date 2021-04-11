@@ -32,6 +32,7 @@ class CreateProductsTable extends Migration
             $table->dateTime('special_end');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 
