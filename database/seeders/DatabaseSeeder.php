@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('users')->insert(
             [
+            [
                 'name' => 'Admin',
                 'email' => 'admin@demo.com',
                 'mobile'=>'0821234567',
@@ -31,9 +32,11 @@ class DatabaseSeeder extends Seeder
                 'is_admin'=>0,
                 'password' => Hash::make('password'),
                 ]
+            ]
         );
 
         DB::table('categories')->insert(
+            [
             [
                 'main'=>'Consumables',
                 'sub' =>'consumables',
@@ -49,9 +52,11 @@ class DatabaseSeeder extends Seeder
                 'sub' =>'Round Liner',
                 'slug' =>'needles-round-liner',
             ],
+            ]
         );
 
         DB::table('products')->insert(
+            [
             [
                 'name'=>'Foot Switch Mini Pedal',
                 'slug'=>'foot-switch-mini-pedal',
@@ -518,6 +523,7 @@ class DatabaseSeeder extends Seeder
                 'special_end'=>null,
                 'is_active'=>1
             ],
+            ]
         );
     }
 }

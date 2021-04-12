@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Home</title>	
+	<title>Home</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.ico')}}">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet">
@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/chosen.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/color-01.css')}}">
+    @livewireStyles
 </head>
 <body class="home-page home-01 ">
 
@@ -55,7 +56,7 @@
                 @endif
                 <li class="menu-item"><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                 </ul>
-              </li>  
+              </li>
               @endguest
 							</ul>
 						</div>
@@ -165,7 +166,7 @@
 								</li>
 								<li class="menu-item">
 									<a href="/contact-us" class="link-term mercado-item-title">Contact Us</a>
-								</li>																	
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -246,7 +247,7 @@
 											<li>
 												<i class="fa fa-envelope" aria-hidden="true"></i>
 												<p class="contact-txt">Contact@yourcompany.com</p>
-											</li>											
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -421,10 +422,10 @@
 					<div class="coppy-right-item item-right">
 						<div class="wrap-nav horizontal-nav">
 							<ul>
-								<li class="menu-item"><a href="about-us.html" class="link-term">About us</a></li>								
+								<li class="menu-item"><a href="about-us.html" class="link-term">About us</a></li>
 								<li class="menu-item"><a href="privacy-policy.html" class="link-term">Privacy Policy</a></li>
 								<li class="menu-item"><a href="terms-conditions.html" class="link-term">Terms & Conditions</a></li>
-								<li class="menu-item"><a href="return-policy.html" class="link-term">Return Policy</a></li>								
+								<li class="menu-item"><a href="return-policy.html" class="link-term">Return Policy</a></li>
 							</ul>
 						</div>
 					</div>
@@ -443,5 +444,6 @@
 	<script src="{{ asset('js/jquery.countdown.min.js')}}"></script>
 	<script src="{{ asset('js/jquery.sticky.js')}}"></script>
 	<script src="{{ asset('js/functions.js')}}"></script>
+    @livewireScripts
 </body>
 </html>
