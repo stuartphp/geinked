@@ -27,4 +27,9 @@ class Product extends Model
         'special_end',
         'is_active'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(\App\Models\Category::class);
+    }
 }

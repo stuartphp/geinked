@@ -8,7 +8,7 @@
         <div class="wrap-breadcrumb">
             <ul>
                 <li class="item-link"><a href="/" class="link">home</a></li>
-                <li class="item-link"><a href="/shop">Shop</a></li>
+                <li class="item-link"><a href="/{{ $product->category->slug }}">{{ $product->category->main }} @if($product->category->sub>'') / {{ $product->category->sub }} @endif</a></li>
                 <li class="item-link"><span>{{ $product->name }}</span></li>
             </ul>
         </div>
@@ -61,13 +61,7 @@
                                 <a class="btn btn-increase" href="#"></a>
                             </div>
                         </div>
-                        <div class="wrap-butons">
-                            <a href="#" class="btn add-to-cart">Add to Cart</a>
-                            <div class="wrap-btn">
-                                <a href="#" class="btn btn-compare">Add Compare</a>
-                                <a href="#" class="btn btn-wishlist">Add Wishlist</a>
-                            </div>
-                        </div>
+                        @livewire('add-to-cart-component', ['name'=>$product->name, 'id'=>$product->id, 'price'=>$product->regular_price])
                     </div>
                     <div class="advance-info">
                         <div class="tab-control normal">
