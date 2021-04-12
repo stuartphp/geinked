@@ -23,13 +23,13 @@ class CreateProductsTable extends Migration
             $table->string('sku');
             $table->enum('stock_status', ['in-stock', 'out-stock', 'special', 'feature']);
             $table->integer('on_hand');
-            $table->string('main_image');
+            $table->string('image');
             $table->text('images');
             $table->string('unit');
             $table->double('regular_price');
-            $table->double('special_price');
-            $table->dateTime('special_start');
-            $table->dateTime('special_end');
+            $table->double('special_price')->nullable();
+            $table->dateTime('special_start')->nullable();
+            $table->dateTime('special_end')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
