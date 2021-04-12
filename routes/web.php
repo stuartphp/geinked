@@ -18,7 +18,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/shop',[App\Http\Controllers\ShopController::class, 'index'])->name('shop');
+
+Route::get('/shop',[App\Http\Controllers\SiteController::class, 'shop'])->name('shop');
+Route::get('/cart',[App\Http\Controllers\SiteController::class, 'cart'])->name('cart');
+Route::get('/checkout',[App\Http\Controllers\SiteController::class, 'checkout'])->name('checkout');
 Route::get('/about-us',[App\Http\Controllers\SiteController::class, 'about'])->name('about');
 Route::get('/contact-us',[App\Http\Controllers\SiteController::class, 'contact'])->name('contact');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

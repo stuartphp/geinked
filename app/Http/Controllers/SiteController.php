@@ -14,4 +14,16 @@ class SiteController extends Controller
     {
         return view('site.contact_us');
     }
+    public function shop()
+    {
+        return view('site.shop');
+    }
+    public function cart()
+    {
+        return view('site.cart');
+    }
+    public function checkout()
+    {
+        return view('site.checkout');
+    }
 }
