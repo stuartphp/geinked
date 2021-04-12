@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/flexslider.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/chosen.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/color-01.css')}}">
@@ -36,7 +37,7 @@
 						<div class="topbar-menu left-menu">
 							<ul>
 								<li class="menu-item" >
-									<a title="Hotline: (+123) 456 789" href="#" ><span class="icon label-before fa fa-mobile"></span>Hotline: (+123) 456 789</a>
+									<a title="Hotline: (+27)065 0045" href="#" ><span class="icon label-before fa fa-mobile"></span>Hotline: (+27)065 0045</a>
 								</li>
 							</ul>
 						</div>
@@ -238,15 +239,15 @@
 										<ul>
 											<li>
 												<i class="fa fa-map-marker" aria-hidden="true"></i>
-												<p class="contact-txt">45 Grand Central Terminal New York,NY 1017 United State USA</p>
+												<p class="contact-txt">844 Haarhoff Street, Rietfontein, Pretoria, Gauteng South Africa</p>
 											</li>
 											<li>
 												<i class="fa fa-phone" aria-hidden="true"></i>
-												<p class="contact-txt">(+123) 456 789 - (+123) 666 888</p>
+												<p class="contact-txt">(+27)065 0045 - (+27) 666 888</p>
 											</li>
 											<li>
 												<i class="fa fa-envelope" aria-hidden="true"></i>
-												<p class="contact-txt">Contact@yourcompany.com</p>
+												<p class="contact-txt">sales@getinked.co.za</p>
 											</li>
 										</ul>
 									</div>
@@ -260,8 +261,8 @@
 								<h3 class="item-header">Hot Line</h3>
 								<div class="item-content">
 									<div class="wrap-hotline-footer">
-										<span class="desc">Call Us toll Free</span>
-										<b class="phone-number">(+123) 456 789 - (+123) 666 888</b>
+										<span class="desc">Call Us On</span>
+										<b class="phone-number">(+27)065 0045</b>
 									</div>
 								</div>
 							</div>
