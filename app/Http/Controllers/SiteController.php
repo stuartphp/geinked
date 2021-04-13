@@ -26,5 +26,17 @@ class SiteController extends Controller
     {
         return view('site.checkout');
     }
-    
+    public function privacy()
+    {
+        return view('site.privacy');
+    }
+    public function terms()
+    {
+        return view('site.terms');
+    }
+    public function return()
+    {
+        return view('site.return');
+    }
+
 }
