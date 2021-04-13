@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('main');
             $table->string('sub')->nullable();
             $table->string('slug')->unique();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

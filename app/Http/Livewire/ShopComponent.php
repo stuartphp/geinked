@@ -38,10 +38,10 @@ class ShopComponent extends Component
                 $products=Product::orderBy('updated_at', 'desc')->paginate($this->size);
                 break;
             case 'price':
-                $products=Product::orderBy('regular_price', 'desc')->paginate($this->size);
+                $products=Product::orderBy('regular_price', 'asc')->paginate($this->size);
                 break;
             case 'price-desc':
-                $products=Product::orderBy('regular_price', 'asc')->paginate($this->size);
+                $products=Product::orderBy('regular_price', 'desc')->paginate($this->size);
                 break;
             default:
                 $products=Product::paginate($this->size);
@@ -56,7 +56,7 @@ class ShopComponent extends Component
     public function categories()
     {
         $list=[];
-        $cats = Category::orderBy('main', 'asc')->orderBy('sub', 'asc')->get();
+        $cats = Category::where('is_active', 1)->orderBy('main', 'asc')->orderBy('sub', 'asc')->get();
         foreach($cats as $cat)
         {
             $list[$cat->main][]=$cat->sub;

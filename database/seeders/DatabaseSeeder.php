@@ -39,8 +39,13 @@ class DatabaseSeeder extends Seeder
             [
             [
                 'main'=>'Consumables',
-                'sub' =>'consumables',
+                'sub' =>'',
                 'slug' =>'consumables',
+            ],
+            [
+                'main'=>'Inks',
+                'sub' =>'Dynamic',
+                'slug' =>'inks-dynamic',
             ],
             [
                 'main'=>'Inks',
@@ -48,9 +53,34 @@ class DatabaseSeeder extends Seeder
                 'slug' =>'inks-eternal',
             ],
             [
+                'main'=>'Inks',
+                'sub' =>'Kuro Sumi',
+                'slug' =>'inks-kuro-sumi',
+            ],
+            [
+                'main'=>'Inks',
+                'sub' =>'World Famouse',
+                'slug' =>'inks-world-famouse',
+            ],
+            [
                 'main'=>'Needles',
                 'sub' =>'Round Liner',
                 'slug' =>'needles-round-liner',
+            ],
+            [
+                'main'=>'Needles',
+                'sub' =>'Round Shader',
+                'slug' =>'needles-round-shader',
+            ],
+            [
+                'main'=>'Needles',
+                'sub' =>'Flat',
+                'slug' =>'needles-flat',
+            ],
+            [
+                'main'=>'Needles',
+                'sub' =>'Magnum',
+                'slug' =>'needles-magnum',
             ],
             ]
         );

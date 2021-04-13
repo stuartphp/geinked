@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/flexslider.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/chosen.min.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css')}}?{{ md5(time()) }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/color-01.css')}}">
     @livewireStyles
 </head>
@@ -75,29 +75,7 @@
 								<form action="#" id="form-search-top" name="form-search-top">
 									<input type="text" name="search" value="" placeholder="Search here...">
 									<button form="form-search-top" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-									<div class="wrap-list-cate">
-										<input type="hidden" name="product-cate" value="0" id="product-cate">
-										<a href="#" class="link-control">All Category</a>
-										<ul class="list-cate">
-											<li class="level-0">All Category</li>
-											<li class="level-1">-Electronics</li>
-											<li class="level-2">Batteries & Chargens</li>
-											<li class="level-2">Headphone & Headsets</li>
-											<li class="level-2">Mp3 Player & Acessories</li>
-											<li class="level-1">-Smartphone & Table</li>
-											<li class="level-2">Batteries & Chargens</li>
-											<li class="level-2">Mp3 Player & Headphones</li>
-											<li class="level-2">Table & Accessories</li>
-											<li class="level-1">-Electronics</li>
-											<li class="level-2">Batteries & Chargens</li>
-											<li class="level-2">Headphone & Headsets</li>
-											<li class="level-2">Mp3 Player & Acessories</li>
-											<li class="level-1">-Smartphone & Table</li>
-											<li class="level-2">Batteries & Chargens</li>
-											<li class="level-2">Mp3 Player & Headphones</li>
-											<li class="level-2">Table & Accessories</li>
-										</ul>
-									</div>
+
 								</form>
 							</div>
 						</div>
@@ -149,22 +127,22 @@
 					<div class="primary-nav-section">
 						<div class="container">
 							<ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
-								<li class="menu-item home-icon">
+								<li class="menu-item {{ request()->is('/') ? 'home-icon':'' }}">
 									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item {{ request()->is('about-us') ? 'home-icon':'' }}">
 									<a href="/about-us" class="link-term mercado-item-title">About Us</a>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item {{ request()->is('shop') ? 'home-icon':'' }}">
 									<a href="/shop" class="link-term mercado-item-title">Shop</a>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item {{ request()->is('cart') ? 'home-icon':'' }}">
 									<a href="/cart" class="link-term mercado-item-title">Cart</a>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item {{ request()->is('checkout') ? 'home-icon':'' }}">
 									<a href="/checkout" class="link-term mercado-item-title">Checkout</a>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item {{ request()->is('contact-us') ? 'home-icon':'' }}">
 									<a href="/contact-us" class="link-term mercado-item-title">Contact Us</a>
 								</li>
 							</ul>
@@ -191,7 +169,7 @@
 							<i class="fa fa-truck" aria-hidden="true"></i>
 							<div class="wrap-left-info">
 								<h4 class="fc-name">Free Shipping</h4>
-								<p class="fc-desc">Free On Oder Over $99</p>
+								<p class="fc-desc">Free On Oder Over R2000</p>
 							</div>
 
 						</li>
@@ -199,7 +177,7 @@
 							<i class="fa fa-recycle" aria-hidden="true"></i>
 							<div class="wrap-left-info">
 								<h4 class="fc-name">Guarantee</h4>
-								<p class="fc-desc">30 Days Money Back</p>
+								<p class="fc-desc">7 Days Money Back</p>
 							</div>
 
 						</li>
@@ -215,7 +193,7 @@
 							<i class="fa fa-life-ring" aria-hidden="true"></i>
 							<div class="wrap-left-info">
 								<h4 class="fc-name">Online Suport</h4>
-								<p class="fc-desc">We Have Support 24/7</p>
+								<p class="fc-desc">Business Hours Weekdays</p>
 							</div>
 
 						</li>
@@ -242,7 +220,11 @@
 											</li>
 											<li>
 												<i class="fa fa-phone" aria-hidden="true"></i>
-												<p class="contact-txt">(+27)065 0045 - (+27) 666 888</p>
+												<p class="contact-txt">(+27)065 0045</p>
+											</li>
+											<li>
+												<i class="fa fa-whatsapp" aria-hidden="true"></i>
+												<p class="contact-txt">(+27)065 0045</p>
 											</li>
 											<li>
 												<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -338,7 +320,7 @@
 											<li><a href="#" class="link-to-item" title="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 											<li><a href="#" class="link-to-item" title="pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
 											<li><a href="#" class="link-to-item" title="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-											<li><a href="#" class="link-to-item" title="vimeo"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+											{{-- <li><a href="#" class="link-to-item" title="vimeo"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li> --}}
 										</ul>
 									</div>
 								</div>
@@ -362,7 +344,7 @@
 					</div>
 				</div>
 
-				<div class="wrap-back-link">
+				{{-- <div class="wrap-back-link">
 					<div class="container">
 						<div class="back-link-box">
 							<h3 class="backlink-title">Quick Links</h3>
@@ -410,8 +392,8 @@
 							</div>
 						</div>
 					</div>
-				</div>
-
+				</div> --}}
+<br>
 			</div>
 
 			<div class="coppy-right-box">
@@ -422,7 +404,7 @@
 					<div class="coppy-right-item item-right">
 						<div class="wrap-nav horizontal-nav">
 							<ul>
-								<li class="menu-item"><a href="about-us.html" class="link-term">About us</a></li>
+								{{-- <li class="menu-item"><a href="about-us.html" class="link-term">About us</a></li> --}}
 								<li class="menu-item"><a href="privacy-policy.html" class="link-term">Privacy Policy</a></li>
 								<li class="menu-item"><a href="terms-conditions.html" class="link-term">Terms & Conditions</a></li>
 								<li class="menu-item"><a href="return-policy.html" class="link-term">Return Policy</a></li>
@@ -439,7 +421,7 @@
 	<script src="{{ asset('js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
 	<script src="{{ asset('js/bootstrap.min.js')}}"></script>
 	<script src="{{ asset('js/jquery.flexslider.js')}}"></script>
-	<script src="{{ asset('js/chosen.jquery.min.js')}}"></script>
+	{{-- <script src="{{ asset('js/chosen.jquery.min.js')}}"></script> --}}
 	<script src="{{ asset('js/owl.carousel.min.js')}}"></script>
 	<script src="{{ asset('js/jquery.countdown.min.js')}}"></script>
 	<script src="{{ asset('js/jquery.sticky.js')}}"></script>
