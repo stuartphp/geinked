@@ -25,6 +25,12 @@ class CartComponent extends Component
         $this->checkShipping();
     }
 
+    public function destroy($rowId)
+    {
+        Cart::remove($rowId);
+        session()->flash('success', 'Item has been removed');
+    }
+
     public function mount(){
         $this->checkShipping();
     }

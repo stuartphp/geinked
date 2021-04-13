@@ -445,5 +445,6 @@
 	<script src="{{ asset('js/jquery.sticky.js')}}"></script>
 	<script src="{{ asset('js/functions.js')}}"></script>
     @livewireScripts
+    @yield('scripts')
 </body>
 </html>
