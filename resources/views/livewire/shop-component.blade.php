@@ -88,11 +88,11 @@
                     <ul class="list-category">
                         @foreach ($categories as $k=>$v )
                             <li class="category-item has-child-cate">
-                                <a href="#" class="cate-link">{{ $k }}</a>
+                                <a href="{{ route('product.category', ['slug'=>$k]) }}" class="cate-link">{{ $k }}</a>
                                 @if(count($v)>0)
                                 <ol style="padding-left: 15px;">
                                     @for($i=0; $i<count($v); $i++)
-                                    <li class="category-item"><a href="#" class="cate-link">{{ $v[$i] }}</a></li>
+                                    <li class="category-item"><a href="{{ route('product.category', ['slug'=>$v[$i]]) }}" class="cate-link">{{ $v[$i] }}</a></li>
                                     @endfor
                                 </ol>
                                 @endif

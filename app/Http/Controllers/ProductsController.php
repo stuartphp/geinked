@@ -14,4 +14,14 @@ class ProductsController extends Controller
         //dd($product);
         return view('products.detail', compact('product'));
     }
+
+    public function category($slug)
+    {
+        $products = Product::join('categories', 'categories.id', '=', 'category_id')
+            ->where('categories.slug', '=', $slug)
+            ->select('products.*', 'categories.main', 'categories.sub')
+            ->paginate(12);
+
+        return view('products.category', compact('products'));
+    }
 }

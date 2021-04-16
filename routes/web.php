@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/product/{slug}',[App\Http\Controllers\ProductsController::class, 'index'])->name('product.detail');
+Route::get('/category/{slug}',[App\Http\Controllers\ProductsController::class, 'category'])->name('product.category');
 
 Route::get('/shop',[App\Http\Controllers\SiteController::class, 'shop'])->name('shop');
 
