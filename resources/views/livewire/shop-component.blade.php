@@ -2,19 +2,19 @@
     <div class="wrap-breadcrumb">
         <ul>
             <li class="item-link"><a href="#" class="link">home</a></li>
-            <li class="item-link"><span>Digital & Electronics</span></li>
+            <li class="item-link"><span>{{ $category_title }}</span></li>
         </ul>
     </div>
     <div class="row">
         <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
             <div class="banner-shop">
                 <a href="#" class="banner-link">
-                    <figure><img src="{{ asset('images/shop-banner.jpg') }}" alt=""></figure>
+                    <figure><img src="{{ asset('images/'.$category_image) }}" alt="" style="height: 272px"></figure>
                 </a>
             </div>
 
             <div class="wrap-shop-control">
-                <h1 class="shop-title">Digital & Electronics</h1>
+                <h1 class="shop-title">{{ $category_title }}</h1>
                 <div class="wrap-right">
                     <div class="sort-item orderby ">
                         <select name="orderby" class="form-select" wire:model="sorting" >
@@ -37,10 +37,10 @@
                         </select>
                     </div>
 
-                    <div class="change-display-mode">
+                    {{-- <div class="change-display-mode">
                         <a href="#" class="grid-mode display-mode active"><i class="fa fa-th"></i>Grid</a>
                         <a href="list.html" class="list-mode display-mode"><i class="fa fa-th-list"></i>List</a>
-                    </div>
+                    </div> --}}
 
                 </div>
 
@@ -87,16 +87,29 @@
                 <div class="widget-content">
                     <ul class="list-category">
                         @foreach ($categories as $k=>$v )
-                            <li class="category-item has-child-cate">
-                                <a href="{{ route('product.category', ['slug'=>$k]) }}" class="cate-link">{{ $k }}</a>
-                                @if(count($v)>0)
-                                <ol style="padding-left: 15px;">
-                                    @for($i=0; $i<count($v); $i++)
-                                    <li class="category-item"><a href="{{ route('product.category', ['slug'=>$v[$i]]) }}" class="cate-link">{{ $v[$i] }}</a></li>
-                                    @endfor
-                                </ol>
-                                @endif
-                            </li>
+                            @if ($k == 0)
+                                @foreach ( $v as $q=>$w)
+                                    @if (array_key_exists($q, $categories))
+                                    <li class="category-item has-child-cate @if($category_parent_id==$q) open @endif">
+                                        <a href="/shop/{{ $w[1] }}" class="cate-link @if($category_parent_id==$q) active @endif">{{ $w[0] }}</a>
+									    <span class="toggle-control">+</span>
+                                        <ul class="sub-cate">
+                                            @foreach ($categories as $e=>$r )
+                                                @if ($e==$q)
+                                                    @foreach ($r as $t=>$y )
+                                                        <li class="category-item"><a href="/shop/{{ $w[1] }}/{{ $y[1] }}" class="cate-link @if($category_slug==$y[1]) active @endif" >{{ $y[0] }}</a></li>
+                                                    @endforeach
+                                                @endif
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                    @else
+                                    <li class="category-item">
+                                        <a href="/shop/{{ $w[1] }}" class="cate-link @if($category_slug==$w[1]) active @endif">{{ $w[0] }}</a>
+                                    </li>
+                                    @endif
+                                @endforeach
+                            @endif
                         @endforeach
 
                     </ul>

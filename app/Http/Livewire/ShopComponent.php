@@ -14,6 +14,12 @@ class ShopComponent extends Component
 
     public $sorting;
     public $size;
+    public $category_title;
+    public $category_slug='';
+    public $category_id=0;
+    public $category_image='shop-banner.jpg';
+    public $category_parent_id=0;
+    public $listeners = ['updCategory'];
 
     protected $paginationTheme = 'bootstrap';
 
@@ -24,29 +30,77 @@ class ShopComponent extends Component
         return redirect()->route('cart');
     }
 
-    public function mount()
+    public function updCategory($cat)
     {
+        $c = Category::where('slug', $cat)->first();
+        $this->category_slug=$cat;
+        $this->category_id=$c->id;
+        $this->category_parent_id=$c->parent_id;
+        $this->category_title = $c->name;
+        if($c->image != NULL)
+        {
+            $this->category_image = $c->image;
+        }
+    }
+
+    public function mount($cat='', $slug='')
+    {
+        if($cat>'')
+        {
+            $this->category_slug=$cat;
+            $c = Category::where('slug', $cat)->first();
+            $this->category_id=$c->id;
+            $this->category_parent_id=$c->parent_id;
+            $this->category_title = $c->name;
+            if($c->image != NULL)
+            {
+                $this->category_image = $c->image;
+            }
+        }else{
+            $this->category_title='All Products';
+        }
         $this->sorting='default';
         $this->size=12;
     }
 
+
     public function render()
     {
+
         switch($this->sorting)
         {
             case 'date':
-                $products=Product::orderBy('updated_at', 'desc')->paginate($this->size);
+                if($this->category_id>0)
+                {
+                    $products=Product::where('category_id', $this->category_id)->orderBy('updated_at', 'desc')->paginate($this->size);
+                }else{
+                    $products=Product::orderBy('updated_at', 'desc')->paginate($this->size);
+                }
                 break;
             case 'price':
-                $products=Product::orderBy('regular_price', 'asc')->paginate($this->size);
+                if($this->category_id>0)
+                {
+                    $products=Product::where('category_id', $this->category_id)->orderBy('regular_price', 'asc')->paginate($this->size);
+                }else{
+                    $products=Product::orderBy('regular_price', 'asc')->paginate($this->size);
+                }
                 break;
             case 'price-desc':
-                $products=Product::orderBy('regular_price', 'desc')->paginate($this->size);
+                if($this->category_id>0)
+                {
+                    $products=Product::where('category_id', $this->category_id)->orderBy('regular_price', 'desc')->paginate($this->size);
+                }else{
+                    $products=Product::orderBy('regular_price', 'desc')->paginate($this->size);
+                }
                 break;
             default:
-                $products=Product::paginate($this->size);
+            if($this->category_id>0)
+                {
+                    $products=Product::where('category_id', $this->category_id)->paginate($this->size);
+                }else{
+                    $products=Product::paginate($this->size);
+                }
                 break;
-
         }
 
         $categories = $this->categories();
@@ -55,12 +109,13 @@ class ShopComponent extends Component
 
     public function categories()
     {
-        $list=[];
-        $cats = Category::where('is_active', 1)->orderBy('main', 'asc')->orderBy('sub', 'asc')->get();
-        foreach($cats as $cat)
+        $cats = Category::where('is_active', 1)->orderBy('parent_id', 'asc')->orderBy('name', 'asc')->where('is_active',1)->get();
+        $items=[];
+        foreach ($cats as $c)
         {
-            $list[$cat->main][]=$cat->sub;
+            $items[$c->parent_id][$c->id]=[$c->name, $c->slug];
         }
-        return $list;
+        return $items;
     }
+
 }

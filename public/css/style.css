@@ -7193,3 +7193,6 @@ border-color: #FF2832;
     font-weight: bold;
     text-transform: uppercase;
 }
+.category-item .active{
+    color: #ff0000;
+}

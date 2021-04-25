@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use phpDocumentor\Reflection\Types\Null_;
 
 class DatabaseSeeder extends Seeder
 {
@@ -37,49 +38,59 @@ class DatabaseSeeder extends Seeder
 
         DB::table('categories')->insert(
             [
-            [
-                'main'=>'Consumables',
-                'sub' =>'',
+            [//1
+                'name'=>'Consumables',
+                'parent_id' =>NULL,
                 'slug' =>'consumables',
             ],
+            [//2
+                'name'=>'Inks',
+                'parent_id' =>NULL,
+                'slug' =>'inks',
+            ],
             [
-                'main'=>'Inks',
-                'sub' =>'Dynamic',
+                'name'=>'Dynamic',
+                'parent_id' =>2,
                 'slug' =>'inks-dynamic',
             ],
             [
-                'main'=>'Inks',
-                'sub' =>'Eternal',
+                'name'=>'Eternal',
+                'parent_id' =>2,
                 'slug' =>'inks-eternal',
             ],
             [
-                'main'=>'Inks',
-                'sub' =>'Kuro Sumi',
+                'name'=>'Kuro Sumi',
+                'parent_id' =>2,
                 'slug' =>'inks-kuro-sumi',
             ],
             [
-                'main'=>'Inks',
-                'sub' =>'World Famouse',
+                'name'=>'World Famouse',
+                'parent_id' =>2,
                 'slug' =>'inks-world-famouse',
             ],
+            [ //3
+                'name'=>'Needles',
+                'parent_id' =>Null,
+                'slug' =>'needles',
+            ],
             [
-                'main'=>'Needles',
-                'sub' =>'Round Liner',
+                'name'=>'Round Liner',
+                'parent_id' =>7,
                 'slug' =>'needles-round-liner',
             ],
             [
-                'main'=>'Needles',
-                'sub' =>'Round Shader',
+                'name'=>'Round Shader',
+                'parent_id' =>7,
                 'slug' =>'needles-round-shader',
             ],
             [
-                'main'=>'Needles',
-                'sub' =>'Flat',
+                'name'=>'Flat',
+                'parent_id' =>7,
                 'slug' =>'needles-flat',
             ],
             [
-                'main'=>'Needles',
-                'sub' =>'Magnum',
+                'name'=>'Magnum',
+                'parent_id' =>7,
                 'slug' =>'needles-magnum',
             ],
             ]

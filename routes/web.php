@@ -20,8 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/product/{slug}',[App\Http\Controllers\ProductsController::class, 'index'])->name('product.detail');
-Route::get('/category/{slug}',[App\Http\Controllers\ProductsController::class, 'category'])->name('product.category');
-
+Route::get('/shop/{cat}/{slug?}',[App\Http\Controllers\ProductsController::class, 'category'])->name('product.category');
 Route::get('/shop',[App\Http\Controllers\SiteController::class, 'shop'])->name('shop');
 
 Route::get('/cart',[App\Http\Controllers\SiteController::class, 'cart'])->name('cart');
@@ -33,3 +32,6 @@ Route::get('/return-policy',[App\Http\Controllers\SiteController::class, 'return
 Route::get('/about-us',[App\Http\Controllers\SiteController::class, 'about'])->name('about');
 Route::get('/contact-us',[App\Http\Controllers\SiteController::class, 'contact'])->name('contact');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('admin')->middleware(['auth', 'web'])->group(function () {
+    Route::get('dashboard', [App\Http\Controllers\Admin\AdminController::class, 'dashboard'] )->name('admin.dashboard');
+});

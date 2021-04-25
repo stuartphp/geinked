@@ -50,7 +50,7 @@
               My Account ({{ Auth::user()->name }})
                 <ul class="submenu">
                 @if(Auth::user()->is_admin >0)
-
+                <li class="menu-item"><a href="admin/dashboard">Dashboard</a></li>
                 @else
 
                 @endif
@@ -67,7 +67,7 @@
 					<div class="mid-section main-info-area">
 
 						<div class="wrap-logo-top left-section">
-							<a href="index.html" class="link-to-home"><img src="{{ asset('images/logo-top-1.png')}}" alt="mercado"></a>
+							<a href="/" class="link-to-home"><img src="{{ asset('images/logo-top-1.png')}}" alt="mercado"></a>
 						</div>
 
 						<div class="wrap-search center-section">
@@ -417,7 +417,8 @@
 		</div>
 	</footer>
 	<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
-	<script src="{{ asset('js/jquery-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
+	<script src="{{ asset('js/jquery-3.min.js')}}"></script>
+	{{-- <script src="{{ asset('js/jquery-1.12.4.minb8ff.js?ver=1.12.4')}}"></script> --}}
 	<script src="{{ asset('js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
 	<script src="{{ asset('js/bootstrap.min.js')}}"></script>
 	<script src="{{ asset('js/jquery.flexslider.js')}}"></script>
