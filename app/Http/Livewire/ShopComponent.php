@@ -7,6 +7,7 @@ use App\Models\Product;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Cart;
+use Illuminate\Support\Facades\DB;
 
 class ShopComponent extends Component
 {
@@ -15,6 +16,8 @@ class ShopComponent extends Component
     public $sorting;
     public $size;
     public $category_title;
+    public $parent_titl;
+    public $parent_slug;
     public $category_slug='';
     public $category_id=0;
     public $category_image='shop-banner.jpg';
@@ -30,25 +33,25 @@ class ShopComponent extends Component
         return redirect()->route('cart');
     }
 
-    public function updCategory($cat)
-    {
-        $c = Category::where('slug', $cat)->first();
-        $this->category_slug=$cat;
-        $this->category_id=$c->id;
-        $this->category_parent_id=$c->parent_id;
-        $this->category_title = $c->name;
-        if($c->image != NULL)
-        {
-            $this->category_image = $c->image;
-        }
-    }
-
     public function mount($cat='', $slug='')
     {
         if($cat>'')
         {
-            $this->category_slug=$cat;
-            $c = Category::where('slug', $cat)->first();
+            if($slug > '')
+            {
+                $this->category_slug=$slug;
+                $c = DB::table('categories as a')
+                    ->join('categories as b', 'b.id', '=', 'a.parent_id')
+                    ->select('a.*', 'b.name as p_name', 'b.slug as p_slug')
+                    ->where('a.slug', $slug)
+                    ->first();
+                $this->parent_title=$c->p_name;
+                $this->parent_slug = $c->p_slug;
+            }else{
+                $this->category_slug=$cat;
+                $c = Category::where('slug', $cat)->first();
+            }
+
             $this->category_id=$c->id;
             $this->category_parent_id=$c->parent_id;
             $this->category_title = $c->name;

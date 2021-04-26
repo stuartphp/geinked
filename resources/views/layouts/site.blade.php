@@ -50,7 +50,7 @@
               My Account ({{ Auth::user()->name }})
                 <ul class="submenu">
                 @if(Auth::user()->is_admin >0)
-                <li class="menu-item"><a href="admin/dashboard">Dashboard</a></li>
+                <li class="menu-item"><a href="/admin/dashboard">Dashboard</a></li>
                 @else
 
                 @endif

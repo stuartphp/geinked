@@ -2,6 +2,9 @@
     <div class="wrap-breadcrumb">
         <ul>
             <li class="item-link"><a href="#" class="link">home</a></li>
+            @isset($parent_title)
+            <li class="item-link"><a href="/shop/{{ $parent_slug }}" class="link">{{ $parent_title }}</a></li>
+            @endisset
             <li class="item-link"><span>{{ $category_title }}</span></li>
         </ul>
     </div>
@@ -9,7 +12,7 @@
         <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
             <div class="banner-shop">
                 <a href="#" class="banner-link">
-                    <figure><img src="{{ asset('images/'.$category_image) }}" alt="" style="height: 272px"></figure>
+                    <figure><img src="{{ asset('images/'.$category_image) }}" alt="{{ $category_title }}"></figure>
                 </a>
             </div>
 
@@ -90,8 +93,8 @@
                             @if ($k == 0)
                                 @foreach ( $v as $q=>$w)
                                     @if (array_key_exists($q, $categories))
-                                    <li class="category-item has-child-cate @if($category_parent_id==$q) open @endif">
-                                        <a href="/shop/{{ $w[1] }}" class="cate-link @if($category_parent_id==$q) active @endif">{{ $w[0] }}</a>
+                                    <li class="category-item has-child-cate @if($parent_slug==$w[1]) open @endif">
+                                        <a href="/shop/{{ $w[1] }}" class="cate-link @if($category_slug==$w[1]) active @endif">{{ $w[0] }} </a>
 									    <span class="toggle-control">+</span>
                                         <ul class="sub-cate">
                                             @foreach ($categories as $e=>$r )

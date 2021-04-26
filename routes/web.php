@@ -34,4 +34,5 @@ Route::get('/contact-us',[App\Http\Controllers\SiteController::class, 'contact']
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::prefix('admin')->middleware(['auth', 'web'])->group(function () {
     Route::get('dashboard', [App\Http\Controllers\Admin\AdminController::class, 'dashboard'] )->name('admin.dashboard');
+    Route::get('categories',[App\Http\Controllers\Admin\AdminController::class, 'categories'])->name('admin.categories');
 });
