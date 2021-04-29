@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/product/{slug}',[App\Http\Controllers\ProductsController::class, 'index'])->name('product.detail');
 Route::get('/shop/{cat}/{slug?}',[App\Http\Controllers\ProductsController::class, 'category'])->name('product.category');
 Route::get('/shop',[App\Http\Controllers\SiteController::class, 'shop'])->name('shop');
-
+Route::get('/search', App\Http\Livewire\SearchComponent::class)->name('product.search');
 Route::get('/cart',[App\Http\Controllers\SiteController::class, 'cart'])->name('cart');
 Route::get('/checkout',[App\Http\Controllers\SiteController::class, 'checkout'])->name('checkout');
 

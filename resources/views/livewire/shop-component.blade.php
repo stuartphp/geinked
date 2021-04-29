@@ -15,7 +15,6 @@
                     <figure><img src="{{ asset('images/'.$category_image) }}" alt="{{ $category_title }}"></figure>
                 </a>
             </div>
-
             <div class="wrap-shop-control">
                 <h1 class="shop-title">{{ $category_title }}</h1>
                 <div class="wrap-right">
