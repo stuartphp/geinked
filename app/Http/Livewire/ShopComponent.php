@@ -22,7 +22,6 @@ class ShopComponent extends Component
     public $category_id=0;
     public $category_image='shop-banner.jpg';
     public $category_parent_id=0;
-    public $listeners = ['updCategory'];
 
     protected $paginationTheme = 'bootstrap';
 

@@ -38,18 +38,9 @@
                             <option value="32">32 per page</option>
                         </select>
                     </div>
-
-                    {{-- <div class="change-display-mode">
-                        <a href="#" class="grid-mode display-mode active"><i class="fa fa-th"></i>Grid</a>
-                        <a href="list.html" class="list-mode display-mode"><i class="fa fa-th-list"></i>List</a>
-                    </div> --}}
-
                 </div>
-
-            </div><!--end wrap shop control-->
-
+            </div>
             <div class="row">
-
                 <ul class="product-list grid-products equal-container">
                     @foreach ($products as $product )
                     <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
@@ -73,15 +64,8 @@
 
             <div class="wrap-pagination-info">
                 {{ $products->links() }}
-                {{-- <ul class="page-numbers">
-                    <li><span class="page-number-item current" >1</span></li>
-                    <li><a class="page-number-item" href="#" >2</a></li>
-                    <li><a class="page-number-item" href="#" >3</a></li>
-                    <li><a class="page-number-item next-link" href="#" >Next</a></li>
-                </ul>
-                <p class="result-count">Showing 1-8 of 12 result</p> --}}
             </div>
-        </div><!--end main products area-->
+        </div>
 
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
             <div class="widget mercado-widget categories-widget">
@@ -93,13 +77,13 @@
                                 @foreach ( $v as $q=>$w)
                                     @if (array_key_exists($q, $categories))
                                     <li class="category-item has-child-cate @if($parent_slug==$w[1]) open @endif">
-                                        <a href="/shop/{{ $w[1] }}" class="cate-link @if($category_slug==$w[1]) active @endif">{{ $w[0] }} </a>
+                                        <a href="/shop/{{ $w[1] }}" class="@if($category_slug==$w[1]) active @endif">{{ $w[0] }} </a>
 									    <span class="toggle-control">+</span>
                                         <ul class="sub-cate">
                                             @foreach ($categories as $e=>$r )
                                                 @if ($e==$q)
                                                     @foreach ($r as $t=>$y )
-                                                        <li class="category-item"><a href="/shop/{{ $w[1] }}/{{ $y[1] }}" class="cate-link @if($category_slug==$y[1]) active @endif" >{{ $y[0] }}</a></li>
+                                                        <li class="category-item"><a href="/shop/{{ $w[1] }}/{{ $y[1] }}" class=" @if($category_slug==$y[1]) active @endif" >{{ $y[0] }}</a></li>
                                                     @endforeach
                                                 @endif
                                             @endforeach
@@ -107,7 +91,7 @@
                                     </li>
                                     @else
                                     <li class="category-item">
-                                        <a href="/shop/{{ $w[1] }}" class="cate-link @if($category_slug==$w[1]) active @endif">{{ $w[0] }}</a>
+                                        <a href="/shop/{{ $w[1] }}" class=" @if($category_slug==$w[1]) active @endif">{{ $w[0] }}</a>
                                     </li>
                                     @endif
                                 @endforeach
@@ -116,27 +100,7 @@
 
                     </ul>
                 </div>
-            </div><!-- Categories widget-->
-<!--
-            <div class="widget mercado-widget filter-widget brand-widget">
-                <h2 class="widget-title">Brand</h2>
-                <div class="widget-content">
-                    <ul class="list-style vertical-list list-limited" data-show="6">
-                        <li class="list-item"><a class="filter-link active" href="#">Fashion Clothings</a></li>
-                        <li class="list-item"><a class="filter-link " href="#">Laptop Batteries</a></li>
-                        <li class="list-item"><a class="filter-link " href="#">Printer & Ink</a></li>
-                        <li class="list-item"><a class="filter-link " href="#">CPUs & Prosecsors</a></li>
-                        <li class="list-item"><a class="filter-link " href="#">Sound & Speaker</a></li>
-                        <li class="list-item"><a class="filter-link " href="#">Shop Smartphone & Tablets</a></li>
-                        <li class="list-item default-hiden"><a class="filter-link " href="#">Printer & Ink</a></li>
-                        <li class="list-item default-hiden"><a class="filter-link " href="#">CPUs & Prosecsors</a></li>
-                        <li class="list-item default-hiden"><a class="filter-link " href="#">Sound & Speaker</a></li>
-                        <li class="list-item default-hiden"><a class="filter-link " href="#">Shop Smartphone & Tablets</a></li>
-                        <li class="list-item"><a data-label='Show less<i class="fa fa-angle-up" aria-hidden="true"></i>' class="btn-control control-show-more" href="#">Show more<i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-            </div> brand widget-->
-
+            </div>
             <div class="widget mercado-widget widget-product">
                 <h2 class="widget-title">Popular Products</h2>
                 <div class="widget-content">
