@@ -135,23 +135,23 @@
 					<div class="primary-nav-section">
 						<div class="container">
 							<ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
-								<li class="menu-item home-icon">
+								<li class="menu-item {{ request()->is('/') ? 'home-icon' : '' }}">
 									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
-								<li class="menu-item">
-									<a href="about-us.html" class="link-term mercado-item-title">About Us</a>
+								<li class="menu-item {{ request()->is('about-us') ? 'home-icon' : '' }}">
+									<a href="/about-us" class="link-term mercado-item-title">About Us</a>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item {{ request()->is('shop*') ? 'home-icon' : '' }}">
 									<a href="/shop" class="link-term mercado-item-title">Shop</a>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item {{ request()->is('cart') ? 'home-icon' : '' }}">
 									<a href="/cart" class="link-term mercado-item-title">Cart</a>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item {{ request()->is('checkout') ? 'home-icon' : '' }}">
 									<a href="/checkout" class="link-term mercado-item-title">Checkout</a>
 								</li>
-								<li class="menu-item">
-									<a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
+								<li class="menu-item {{ request()->is('contact-us') ? 'home-icon' : '' }}">
+									<a href="/contact-us" class="link-term mercado-item-title">Contact Us</a>
 								</li>
 							</ul>
 						</div>
@@ -341,10 +341,10 @@
 					<div class="coppy-right-item item-right">
 						<div class="wrap-nav horizontal-nav">
 							<ul>
-								<li class="menu-item"><a href="about-us.html" class="link-term">About us</a></li>
-								<li class="menu-item"><a href="privacy-policy.html" class="link-term">Privacy Policy</a></li>
-								<li class="menu-item"><a href="terms-conditions.html" class="link-term">Terms & Conditions</a></li>
-								<li class="menu-item"><a href="return-policy.html" class="link-term">Return Policy</a></li>
+								<li class="menu-item"><a href="/about-us" class="link-term">About us</a></li>
+								<li class="menu-item"><a href="/privacy-policy" class="link-term">Privacy Policy</a></li>
+								<li class="menu-item"><a href="/terms-conditions" class="link-term">Terms & Conditions</a></li>
+								<li class="menu-item"><a href="/return-policy" class="link-term">Return Policy</a></li>
 							</ul>
 						</div>
 					</div>

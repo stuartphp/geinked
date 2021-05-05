@@ -1,5 +1,9 @@
 @extends('layouts.site')
 @section('content')
+<main id="main" class="main-site">
+
+<div class="container">
+
 <!-- Content -->
 <div class="wrap-breadcrumb">
     <ul>
@@ -135,6 +139,8 @@
         <p>Any changes we may make to our privacy policy in the future will be posted on this page and, where
             appropriate, notified to you by e-mail.</p>
     </div>
+    </div>
+</div></div></main>
 </section>
 @endsection
 
