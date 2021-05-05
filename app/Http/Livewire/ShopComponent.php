@@ -28,9 +28,8 @@ class ShopComponent extends Component
     public function store($product_id, $product_name, $product_price)
     {
         Cart::add($product_id, $product_name, 1, $product_price)->associate('App\Models\Product');
-        $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Saved']);
-        // session()->flash('success', 'Item added to Cart');
-        // return redirect()->route('cart');
+        $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Item has been added']);
+        $this->emitTo('cart-total', 'refreshComponent');
     }
 
     public function mount($cat='', $slug='')

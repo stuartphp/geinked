@@ -103,9 +103,7 @@
 								<a href="/cart" class="link-direction">
 									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 									<div class="left-info">
-                                        @if(Cart::count() > 0)
-										<span class="index">{{  Cart::Count() }} items</span>
-                                        @endif
+                                        @livewire('cart-total')
 										<span class="title">CART</span>
 									</div>
 								</a>
