@@ -1,9 +1,5 @@
 @extends('layouts.site')
 @section('content')
-<main id="main" class="main-site">
-
-<div class="container">
-
 <!-- Content -->
 <main id="main" class="main-site">
 
@@ -143,13 +139,9 @@
             appropriate, notified to you by e-mail.</p>
     </div>
     </div>
-<<<<<<< HEAD
 </div>
     </div>
 </main>
-=======
-</div></div></main>
->>>>>>> d8c56ed58c59158264b2219b84f8f22f5fa38039
 </section>
 @endsection
 

@@ -14,16 +14,8 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/flexslider.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/chosen.min.css') }}">
-<<<<<<< HEAD
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/color-01.css') }}?{{ md5(time()) }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-=======
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}?{{ md5(time()) }}">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/color-01.css') }}?{{ md5(time()) }}">
-	
-	
->>>>>>> d8c56ed58c59158264b2219b84f8f22f5fa38039
     @livewireStyles
 </head>
 <body class="home-page home-01 ">
@@ -141,7 +133,6 @@
 					<div class="primary-nav-section">
 						<div class="container">
 							<ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
-<<<<<<< HEAD
 								<li class="menu-item {{request()->is('/') ? 'home-icon' : ''}}">
 									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
@@ -158,24 +149,6 @@
 									<a href="/checkout" class="link-term mercado-item-title">Checkout</a>
 								</li>
 								<li class="menu-item {{request()->is('contact-us') ? 'home-icon' : ''}}">
-=======
-								<li class="menu-item {{ request()->is('/') ? 'home-icon' : '' }}">
-									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
-								</li>
-								<li class="menu-item {{ request()->is('about-us') ? 'home-icon' : '' }}">
-									<a href="/about-us" class="link-term mercado-item-title">About Us</a>
-								</li>
-								<li class="menu-item {{ request()->is('shop*') ? 'home-icon' : '' }}">
-									<a href="/shop" class="link-term mercado-item-title">Shop</a>
-								</li>
-								<li class="menu-item {{ request()->is('cart') ? 'home-icon' : '' }}">
-									<a href="/cart" class="link-term mercado-item-title">Cart</a>
-								</li>
-								<li class="menu-item {{ request()->is('checkout') ? 'home-icon' : '' }}">
-									<a href="/checkout" class="link-term mercado-item-title">Checkout</a>
-								</li>
-								<li class="menu-item {{ request()->is('contact-us') ? 'home-icon' : '' }}">
->>>>>>> d8c56ed58c59158264b2219b84f8f22f5fa38039
 									<a href="/contact-us" class="link-term mercado-item-title">Contact Us</a>
 								</li>
 							</ul>
@@ -393,8 +366,8 @@
     @livewireScripts
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <script>
-	window.addEventListener('alert', event => { 
-		toastr[event.detail.type](event.detail.message, event.detail.title ?? '') 
+	window.addEventListener('alert', event => {
+		toastr[event.detail.type](event.detail.message, event.detail.title ?? '')
 		toastr.options = {
 			"closeButton": true,
 			"progressBar": true,

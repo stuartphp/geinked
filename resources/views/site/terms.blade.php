@@ -1,9 +1,5 @@
 @extends('layouts.site')
 @section('content')
-<main id="main" class="main-site">
-
-<div class="container">
-
 <!-- Content -->
 <main id="main" class="main-site">
 
@@ -149,12 +145,8 @@
             <p>If for any reason any provisions of these Terms and Conditions are deemed unenforceable or invalid, the remainder will continue to apply. Any unenforceable or invalid terms shall be to the extent possible, by the adjudication authority, be amended to reflect the original intent as reflected in the original provision. Should any invalid provision be severed, it will not affect the remainder of the agreement if it does not change its purpose.</p>
 
         </div>
-<<<<<<< HEAD
     </div>
 </div></div>
 </main>
-=======
-    </div></div></div></main>
->>>>>>> d8c56ed58c59158264b2219b84f8f22f5fa38039
 </section>
 @endsection

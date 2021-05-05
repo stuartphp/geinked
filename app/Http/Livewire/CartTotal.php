@@ -23,6 +23,7 @@ class CartTotal extends Component
     {
         $this->total=Cart::count();
     }
+    
     public function render()
     {
         return view('livewire.cart-total');

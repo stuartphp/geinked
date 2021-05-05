@@ -105,11 +105,11 @@
     <div class="our-team-info">
       <h4 class="title-box">Our teams</h4>
       <div class="our-staff">
-        <div 
-          class="slide-carousel owl-carousel style-nav-1 equal-container" 
-          data-items="5" 
-          data-loop="false" 
-          data-nav="true" 
+        <div
+          class="slide-carousel owl-carousel style-nav-1 equal-container"
+          data-items="5"
+          data-loop="false"
+          data-nav="true"
           data-dots="false"
           data-margin="30"
           data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"3"},"1200":{"items":"4"}}' >
@@ -117,7 +117,7 @@
           <div class="team-member equal-elem">
             <div class="media">
               <a href="#" title="LEONA">
-                <figure><img src="assets/images/member-leona.jpg" alt="LEONA"></figure>
+                <figure><img src="/images/member-leona.jpg" alt="LEONA"></figure>
               </a>
             </div>
             <div class="info">
@@ -130,7 +130,7 @@
           <div class="team-member equal-elem">
             <div class="media">
               <a href="#" title="LUCIA">
-                <figure><img src="assets/images/member-lucia.jpg" alt="LUCIA"></figure>
+                <figure><img src="/images/member-lucia.jpg" alt="LUCIA"></figure>
               </a>
             </div>
             <div class="info">
@@ -143,7 +143,7 @@
           <div class="team-member equal-elem">
             <div class="media">
               <a href="#" title="NANA">
-                <figure><img src="assets/images/member-nana.jpg" alt="NANA"></figure>
+                <figure><img src="/images/member-nana.jpg" alt="NANA"></figure>
               </a>
             </div>
             <div class="info">
@@ -156,7 +156,7 @@
           <div class="team-member equal-elem">
             <div class="media">
               <a href="#" title="BRAUM">
-                <figure><img src="assets/images/member-braum.jpg" alt="BRAUM"></figure>
+                <figure><img src="/images/member-braum.jpg" alt="BRAUM"></figure>
               </a>
             </div>
             <div class="info">
@@ -169,7 +169,7 @@
           <div class="team-member equal-elem">
             <div class="media">
               <a href="#" title="LUCIA">
-                <figure><img src="assets/images/member-lucia.jpg" alt="LUCIA"></figure>
+                <figure><img src="/images/member-lucia.jpg" alt="LUCIA"></figure>
               </a>
             </div>
             <div class="info">
@@ -182,7 +182,7 @@
           <div class="team-member equal-elem">
             <div class="media">
               <a href="#" title="NANA">
-                <figure><img src="assets/images/member-nana.jpg" alt="NANA"></figure>
+                <figure><img src="/images/member-nana.jpg" alt="NANA"></figure>
               </a>
             </div>
             <div class="info">
@@ -198,7 +198,7 @@
 
     </div>
   <!-- </div> -->
-  
+
 
 </div><!--end container-->
 
