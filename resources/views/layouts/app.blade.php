@@ -7,13 +7,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'GetInked Admin') }}</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css')}}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css')}}"/>
-    <style>
-        .error {
-            color: #ff0000;
-            font-size: 0.8em;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_style.css')}}"/>
     @livewireStyles
 </head>
 <body>
@@ -29,6 +25,9 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link {{ request()->is('admin/dashboard') ? 'active' :'' }}" href="/admin/dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ request()->is('admin/images') ? 'active' :'' }}" aria-current="page" href="/admin/images">Images</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link {{ request()->is('admin/categories') ? 'active' :'' }}" aria-current="page" href="/admin/categories">Categories</a>
@@ -48,7 +47,7 @@
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
               </li>
             </ul>
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto dropstart">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ Auth::user()->name }}
@@ -82,10 +81,18 @@
 
     @livewireScripts
 
-    <script type="text/javascript">
-        window.addEventListener('modal', event => {
-            $('#'+event.detail.modal).modal(event.detail.action);
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script>
+	window.addEventListener('alert', event => { 
+		toastr[event.detail.type](event.detail.message, event.detail.title ?? '') 
+		toastr.options = {
+			"closeButton": true,
+			"progressBar": true,
+		}
+	});
+  window.addEventListener('modal', event => {
+      $('#'+event.detail.modal).modal(event.detail.action);
+  });
+ </script>
 </body>
 </html>

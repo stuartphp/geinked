@@ -19,7 +19,26 @@ class HeaderSearchComponent extends Component
 
     public function render()
     {
-        $categories = Category::all();
+        $categories = $this->categories();
         return view('livewire.header-search-component', compact('categories'));
+    }
+
+
+    public function categories()
+    {
+        $cats = Category::where('is_active', 1)->orderBy('parent_id', 'asc')->orderBy('name', 'asc')->where('is_active',1)->get();
+        $items=[];
+        foreach ($cats as $c)
+        {
+            //$items[$c->parent_id][$c->id]=[$c->name, $c->slug];
+            if($c->parent_id==0)
+            {
+                $items[$c->id][]=$c->name;
+            }else{
+                $items[$c->parent_id][$c->id][]=$c->name;
+            }
+        }
+        //dd($items);
+        return $items;
     }
 }

@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Admin;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-Use Alert;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -31,6 +30,7 @@ class Categories extends Component
     public $name;
     public $parent_id;
     public $slug;
+    public $image;
     public $is_active;
 
     /**
@@ -64,6 +64,7 @@ class Categories extends Component
                 $this->name= $data->name;
                 $this->slug= $data->slug;
                 $this->parent_id= $data->parent_id;
+                $this->image = $data->image;
                 $this->is_active = $data->is_active;
                 $this->dispatchBrowserEvent('modal', ['modal'=>'categoryModal', 'action'=>'show']);
                 break;
@@ -78,7 +79,7 @@ class Categories extends Component
         {
             case 'add':
                 Category::create($this->modelData());
-                Alert::success('Success Title', 'Success Message');
+                $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Category added']);
                 break;
         }
         $this->reset();
