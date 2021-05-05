@@ -16,6 +16,8 @@ class CartComponent extends Component
         $qty = $product->qty +1;
         Cart::update($rowId, $qty);
         $this->checkShipping();
+        $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Item increased']);
+        $this->emitTo('cart-total', 'refreshComponent');
     }
     public function decrement($rowId)
     {
@@ -23,12 +25,21 @@ class CartComponent extends Component
         $qty = $product->qty -1;
         Cart::update($rowId, $qty);
         $this->checkShipping();
+        $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Item descreased']);
+        $this->emitTo('cart-total', 'refreshComponent');
     }
 
     public function destroy($rowId)
     {
         Cart::remove($rowId);
-        session()->flash('success', 'Item has been removed');
+        $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Item has been deleted']);
+        $this->emitTo('cart-total', 'refreshComponent');
+    }
+    public function destroyAll()
+    {
+        Cart::destroy();
+        $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'All items has been deleted!']);
+        $this->emitTo('cart-total', 'refreshComponent');
     }
 
     public function mount(){

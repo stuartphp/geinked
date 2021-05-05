@@ -1,4 +1,5 @@
 @extends('layouts.site')
+@section('title', 'About Us')
 @section('content')
 <!--main area-->
 <main id="main" class="main-site">

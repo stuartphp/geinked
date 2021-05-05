@@ -9,10 +9,19 @@
                 <a href="#" class="link-control">{{ str_split($product_cat, 12)[0] }}</a>
                 <ul class="list-cate">
                     <li class="level-0">All Category</li>
-                    @foreach ($categories as $category)
-                        <li class="level-1" data-id="{{ $category->id }}">{{ $category->name }}</li>
+                    @foreach ($categories as $k=>$v)
+                        @if(count($v)>1)
+                        <li class="level-1" data-id="{{ $k }}">{{ $v[0] }}</li>
+                            @foreach($v as $o=>$p)   
+                            @if($o > 0)                             
+                                <li class="level-2" data-id="{{ $o }}">{{ $p[0] }}</li>
+                                @endif
+                            @endforeach
+                        @else
+                            <li class="level-1" data-id="{{ $k }}">{{ $v[0] }}</li>
+                        @endif
                     @endforeach
-
+                    
                 </ul>
             </div>
         </form>

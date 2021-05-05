@@ -15,6 +15,7 @@
                         <th>Name</th>
                         <th>Parent Id</th>
                         <th>Slug</th>
+                        <th>Image</th>
                         <th>Is Active</th>
                         <th>Action</th>
                     </tr>
@@ -26,8 +27,14 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->parent_id }}</td>
                         <td>{{ $item->slug }}</td>
+                        <td>@if ($item->image>'')
+                          <img src="/images/{{ $item->image}}" style="height: 75px;"/>
+                          @else
+                          No Image
+                        @endif
+                      </td>
                         <td>{{ ($item->is_active==1) ? 'Yes':'No' }}</td>
-                        <td class="col-1"><select class="form-select  form-select-sm" wire:change='categoryAction($event.target.value, {{ $item->id }})'>
+                        <td><select class="form-select  form-select-sm" wire:change='categoryAction($event.target.value, {{ $item->id }})'>
                             <option value="">-- Select --</option>
                             <option value="edit">Edit</option>
                             <option value="delete">Delete</option>
@@ -82,6 +89,13 @@
                 <div class="col-8">
                     <input type="text" wire:model="slug" class="form-control form-control-sm"/>
                     @error('slug') <span class="error">{{ $message }}</span> @enderror
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-4">Image</label>
+                <div class="col-8">
+                    <input type="text" wire:model="image" class="form-control form-control-sm"/>
+                    @error('image') <span class="error">{{ $message }}</span> @enderror
                 </div>
               </div>
             </div>
