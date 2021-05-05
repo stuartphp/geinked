@@ -1,6 +1,9 @@
 @extends('layouts.site')
 @section('content')
 <!-- Content -->
+<main id="main" class="main-site">
+
+    <div class="container">
 <div class="wrap-breadcrumb">
     <ul>
         <li class="item-link"><a href="/" class="link">home</a></li>
@@ -135,6 +138,10 @@
         <p>Any changes we may make to our privacy policy in the future will be posted on this page and, where
             appropriate, notified to you by e-mail.</p>
     </div>
+    </div>
+</div>
+    </div>
+</main>
 </section>
 @endsection
 

@@ -108,3 +108,11 @@
 .wrap-footer-content .wrap-function-info .fc-info-item .wrap-left-info .fc-desc{
 	color: #ffc2c4 !important;
 }
+a.active {
+    color: #ff3c45;
+  }
+  a.link-term.mercado-item-title {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
