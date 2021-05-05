@@ -5618,7 +5618,7 @@ table.shop_attributes tbody{
 }
 #sticky-wrapper.is-sticky .header-sticky{
     top: 0;
-    z-index: 999999999 !important;
+    z-index: 9999 !important;
     background: #ffffff;
 }
 .header-toggle .sticky-wrapper.is-sticky .open-on-top .wrap-toggle-menu.close-menu + .nav.primary,
@@ -7168,3 +7168,7 @@ background-color: #888888;
     background-color: #FF2832;
 border-color: #FF2832;
 }
+.category-item .active {
+    color: #ff0000;
+}
+
