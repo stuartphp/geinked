@@ -16,7 +16,7 @@ class ShopComponent extends Component
     public $sorting;
     public $size;
     public $category_title;
-    public $parent_titl;
+    public $parent_title;
     public $parent_slug;
     public $category_slug='';
     public $category_id=0;

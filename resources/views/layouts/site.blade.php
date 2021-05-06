@@ -16,6 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/chosen.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/color-01.css') }}?{{ md5(time()) }}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     @livewireStyles
 </head>
 <body class="home-page home-01 ">
@@ -150,6 +151,9 @@
 								</li>
 								<li class="menu-item {{request()->is('contact-us') ? 'home-icon' : ''}}">
 									<a href="/contact-us" class="link-term mercado-item-title">Contact Us</a>
+								</li>
+								<li class="menu-item {{request()->is('expired-items') ? 'home-icon' : ''}}">
+									<a href="/expired-items" class="link-term mercado-item-title">Expired Items</a>
 								</li>
 							</ul>
 						</div>

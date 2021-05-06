@@ -19,7 +19,7 @@
                 <h1 class="shop-title">{{ $category_title }}</h1>
                 <div class="wrap-right">
                     <div class="sort-item orderby ">
-                        <select name="orderby" class="form-select" wire:model="sorting" >
+                        <select name="orderby" class="form-select except-chosen" wire:model="sorting" >
                             <option value="default" selected="selected">Default sorting</option>
                             <option value="date">Sort by newness</option>
                             <option value="price">Sort by price: low to high</option>
@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="sort-item product-per-page">
-                        <select name="post-per-page" class="form-select" wire:model="size" >
+                        <select name="post-per-page" class="form-select except-chosen" wire:model="size" >
                             <option value="12" selected="selected">12 per page</option>
                             <option value="16">16 per page</option>
                             <option value="18">18 per page</option>
