@@ -13,12 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
+Route::get('/', [App\Http\Controllers\SiteController::class, 'index']);
 Route::get('/product/{slug}',[App\Http\Controllers\ProductsController::class, 'index'])->name('product.detail');
 Route::get('/shop/{cat}/{slug?}',[App\Http\Controllers\ProductsController::class, 'category'])->name('product.category');
 Route::get('/shop',[App\Http\Controllers\SiteController::class, 'shop'])->name('shop');
@@ -32,8 +29,12 @@ Route::get('/return-policy',[App\Http\Controllers\SiteController::class, 'return
 Route::get('/about-us',[App\Http\Controllers\SiteController::class, 'about'])->name('about');
 Route::get('/contact-us',[App\Http\Controllers\SiteController::class, 'contact'])->name('contact');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::prefix('admin')->middleware(['auth', 'web'])->group(function () {
+
+Route::prefix('admin')->middleware(['auth', 'is_admin', 'web'])->group(function () {
     Route::get('dashboard', [App\Http\Controllers\Admin\AdminController::class, 'dashboard'] )->name('admin.dashboard');
     Route::get('images',[App\Http\Controllers\Admin\AdminController::class, 'categories'])->name('admin.categories');
     Route::get('categories',[App\Http\Controllers\Admin\AdminController::class, 'images'])->name('admin.images');
+});
+Route::middleware(['auth', 'web'])->group(function(){
+    Route::get('dashboard', [App\Http\Controllers\Customers\CustomerController::class, 'index'])->name('user.dashboard');
 });

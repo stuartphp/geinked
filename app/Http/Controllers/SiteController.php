@@ -3,9 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Cookie;
+
 
 class SiteController extends Controller
 {
+    public function __construct()
+    {
+        $minutes = 10080; // Week
+        $cookie = cookie('name', 'value', $minutes);   
+    }
+
+    public function index()
+    {
+        return view('welcome');
+    }
     public function about()
     {
         return view('site.about_us');

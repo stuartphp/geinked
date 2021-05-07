@@ -53,7 +53,11 @@
                             <div class="product-info">
                                 <a href="{{ route('product.detail', ['slug'=>$product->slug]) }}" class="product-name"><span>{{ $product->name }}</span></a>
                                 <div class="wrap-price"><span class="product-price">R {{ $product->regular_price }}</span></div>
-                                <a href="#" wire:click.prevent="store('{{ $product->id }}', '{{ $product->name }}', '{{ $product->regular_price }}')" class="btn add-to-cart">Add To Cart</a>
+                                <div class="row">
+                                <div class="col-xs-4"><a href="#" wire:click.prevet="wish('{{ $product->id }}')" class="btn add-to-cart"><i class="fa fa-heart"></i></a></div>
+                                <div class="col-xs-8"><a href="#" wire:click.prevent="store('{{ $product->id }}', '{{ $product->name }}', '{{ $product->regular_price }}')" class="btn add-to-cart">Add To Cart</a></div>
+                                </div>
+                                
                             </div>
                         </div>
                     </li>

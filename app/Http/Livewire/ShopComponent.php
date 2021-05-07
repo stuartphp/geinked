@@ -32,6 +32,11 @@ class ShopComponent extends Component
         $this->emitTo('cart-total', 'refreshComponent');
     }
 
+    public function wish($id)
+    {
+        
+    }
+
     public function mount($cat='', $slug='')
     {
         if($cat>'')
