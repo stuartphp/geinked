@@ -21,12 +21,14 @@ class CreateProductsTable extends Migration
             $table->text('long_description');
             $table->unsignedBigInteger('category_id');
             $table->string('sku');
-            $table->enum('stock_status', ['in-stock', 'out-stock', 'special', 'feature']);
+            $table->enum('stock_status', ['discontinue', 'feature', 'in-stock', 'out-stock', 'special']);
             $table->integer('on_hand');
             $table->string('image');
             $table->text('images');
             $table->string('unit');
+            $table->date('expire')->nullable();
             $table->double('regular_price');
+            $table->double('expire_price')->nullable();
             $table->double('special_price')->nullable();
             $table->dateTime('special_start')->nullable();
             $table->dateTime('special_end')->nullable();

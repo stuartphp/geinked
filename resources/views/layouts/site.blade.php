@@ -119,17 +119,17 @@
 				</div>
 
 				<div class="nav-section header-sticky">
-					{{-- <div class="header-nav-section">
+					<div class="header-nav-section">
 						<div class="container">
 							<ul class="nav menu-nav clone-main-menu" id="mercado_haead_menu" data-menuname="Sale Info" >
-								<li class="menu-item"><a href="#" class="link-term">Weekly Featured</a><span class="nav-label hot-label">hot</span></li>
-								<li class="menu-item"><a href="#" class="link-term">Hot Sale items</a><span class="nav-label hot-label">hot</span></li>
-								<li class="menu-item"><a href="#" class="link-term">Top new items</a><span class="nav-label hot-label">hot</span></li>
-								<li class="menu-item"><a href="#" class="link-term">Top Selling</a><span class="nav-label hot-label">hot</span></li>
-								<li class="menu-item"><a href="#" class="link-term">Top rated items</a><span class="nav-label hot-label">hot</span></li>
+								<li class="menu-item"><a href="#" class="link-term">Discontinued</a><span class="nav-label hot-label">hot</span></li>
+								<li class="menu-item"><a href="#" class="link-term">Featured</a><span class="nav-label hot-label">hot</span></li>
+								<li class="menu-item"><a href="#" class="link-term">In Stock</a><span class="nav-label hot-label">hot</span></li>
+								<li class="menu-item"><a href="#" class="link-term">Out Fo Stock</a><span class="nav-label hot-label">hot</span></li>
+								<li class="menu-item"><a href="#" class="link-term">Specials</a><span class="nav-label hot-label">hot</span></li>
 							</ul>
 						</div>
-					</div> --}}
+					</div>
 
 					<div class="primary-nav-section">
 						<div class="container">
@@ -239,6 +239,14 @@
 									</div>
 								</div>
 							</div>
+                            <div class="wrap-footer-item">
+								<h3 class="item-header">We Using Safe Payments:</h3>
+								<div class="item-content">
+									<div class="wrap-list-item wrap-gallery">
+										<img src="{{ asset('images/payment.png') }}" style="max-width: 260px;">
+									</div>
+								</div>
+							</div>
 						</div>
 
 						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
@@ -250,9 +258,12 @@
 										<span class="desc">Call Us</span>
 										<b class="phone-number">(012) 065 0045</b>
 									</div>
+									<div class="wrap-hotline-footer">
+										<span class="desc">WhatsApp Us</span>
+										<b class="phone-number">(012) 065 0045</b>
+									</div>
 								</div>
 							</div>
-
 							<div class="wrap-footer-item footer-item-second">
 								<h3 class="item-header">Sign up for newsletter</h3>
 								<div class="item-content">
@@ -297,40 +308,21 @@
 										</div>
 									</div>
 								</div>
+                                <div class="wrap-footer-item" style="float: right">
+                                    <h3 class="item-header">Social network</h3>
+                                    <div class="item-content">
+                                        <div class="wrap-list-item social-network">
+                                            <ul>
+                                                <li><a href="#" class="link-to-item" title="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                <li><a href="#" class="link-to-item" title="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                <li><a href="#" class="link-to-item" title="pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                                <li><a href="#" class="link-to-item" title="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
 							</div>
 						</div>
-
-					</div>
-
-					<div class="row">
-						<div class="col-lg-6 col-sm-12 col-md-6 col-xs-12">
-							<div class="wrap-footer-item">
-								<h3 class="item-header">We Using Safe Payments:</h3>
-								<div class="item-content">
-									<div class="wrap-list-item wrap-gallery">
-										<img src="{{ asset('images/payment.png') }}" style="max-width: 260px;">
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-6 col-sm-12 col-md-6 col-xs-12">
-							<div class="wrap-footer-item">
-								<h3 class="item-header">Social network</h3>
-								<div class="item-content">
-									<div class="wrap-list-item social-network">
-										<ul>
-											<li><a href="#" class="link-to-item" title="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-											<li><a href="#" class="link-to-item" title="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-											<li><a href="#" class="link-to-item" title="pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-											<li><a href="#" class="link-to-item" title="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-											{{-- <li><a href="#" class="link-to-item" title="vimeo"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li> --}}
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-
 					</div>
 				</div>
 			</div>
