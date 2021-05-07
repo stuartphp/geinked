@@ -30,8 +30,6 @@ class CreateCustomersTable extends Migration
             $table->string('facebook_id')->nullable();
             $table->string('twitter_id')->nullable();
             $table->double('delivery_group')->nullable();
-            $table->string('cart')->nullable();
-            $table->string('wish_list')->nullable();
             $table->boolean('newsletter')->default(1);
             $table->boolean('is_sms')->default(1);
             $table->boolean('is_getinked')->default(1);

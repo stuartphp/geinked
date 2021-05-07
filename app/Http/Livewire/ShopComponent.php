@@ -34,7 +34,7 @@ class ShopComponent extends Component
 
     public function wish($id)
     {
-        
+        //Cart::instance();
     }
 
     public function mount($cat='', $slug='')

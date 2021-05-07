@@ -88,15 +88,6 @@
                         @livewire('header-search-component')
 
 						<div class="wrap-icon right-section">
-							<div class="wrap-icon-section wishlist">
-								<a href="#" class="link-direction">
-									<i class="fa fa-heart" aria-hidden="true"></i>
-									<div class="left-info">
-										<span class="index">0 item</span>
-										<span class="title">Wishlist</span>
-									</div>
-								</a>
-							</div>
 							<div class="wrap-icon-section minicart">
 								<a href="/cart" class="link-direction">
 									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
@@ -114,10 +105,8 @@
 								</a>
 							</div>
 						</div>
-
 					</div>
 				</div>
-
 				<div class="nav-section header-sticky">
 					<div class="header-nav-section">
 						<div class="container">
@@ -130,7 +119,6 @@
 							</ul>
 						</div>
 					</div>
-
 					<div class="primary-nav-section">
 						<div class="container">
 							<ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
@@ -179,7 +167,6 @@
 								<h4 class="fc-name">Free Shipping</h4>
 								<p class="fc-desc">Free On Oder Over R3000</p>
 							</div>
-
 						</li>
 						<li class="fc-info-item">
 							<i class="fa fa-recycle" aria-hidden="true"></i>
@@ -187,7 +174,6 @@
 								<h4 class="fc-name">Guarantee</h4>
 								<p class="fc-desc">7 Days Money Back</p>
 							</div>
-
 						</li>
 						<li class="fc-info-item">
 							<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
@@ -195,7 +181,6 @@
 								<h4 class="fc-name">Safe Payment</h4>
 								<p class="fc-desc">Safe your online payment</p>
 							</div>
-
 						</li>
 						<li class="fc-info-item">
 							<i class="fa fa-life-ring" aria-hidden="true"></i>
@@ -248,9 +233,7 @@
 								</div>
 							</div>
 						</div>
-
 						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-
 							<div class="wrap-footer-item">
 								<h3 class="item-header">Hot Line</h3>
 								<div class="item-content">
@@ -289,7 +272,6 @@
 												<li class="menu-item"><a href="#" class="link-term">Order History</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Gift Certificates</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Affiliates</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Wish list</a></li>
 											</ul>
 										</div>
 									</div>
@@ -299,11 +281,10 @@
 									<div class="item-content">
 										<div class="wrap-vertical-nav">
 											<ul>
-												<li class="menu-item"><a href="#" class="link-term">Contact Us</a></li>												
+												<li class="menu-item"><a href="#" class="link-term">Contact Us</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Brands</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Returns</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Site Map</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Specials</a></li>												
+												<li class="menu-item"><a href="#" class="link-term">Specials</a></li>
 											</ul>
 										</div>
 									</div>
