@@ -260,7 +260,7 @@
 									</div>
 									<div class="wrap-hotline-footer">
 										<span class="desc">WhatsApp Us</span>
-										<b class="phone-number">(012) 065 0045</b>
+										<b class="phone-number">+27 76 959 2717</b>
 									</div>
 								</div>
 							</div>
@@ -286,7 +286,7 @@
 										<div class="wrap-vertical-nav">
 											<ul>
 												<li class="menu-item"><a href="#" class="link-term">My Account</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Brands</a></li>
+												<li class="menu-item"><a href="#" class="link-term">Order History</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Gift Certificates</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Affiliates</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Wish list</a></li>
@@ -299,11 +299,11 @@
 									<div class="item-content">
 										<div class="wrap-vertical-nav">
 											<ul>
-												<li class="menu-item"><a href="#" class="link-term">Contact Us</a></li>
+												<li class="menu-item"><a href="#" class="link-term">Contact Us</a></li>												
+												<li class="menu-item"><a href="#" class="link-term">Brands</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Returns</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Site Map</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Specials</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Order History</a></li>
+												<li class="menu-item"><a href="#" class="link-term">Specials</a></li>												
 											</ul>
 										</div>
 									</div>
