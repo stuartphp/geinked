@@ -38,3 +38,5 @@ Route::prefix('admin')->middleware(['auth', 'is_admin', 'web'])->group(function 
 Route::middleware(['auth', 'web'])->group(function(){
     Route::get('dashboard', [App\Http\Controllers\Customers\CustomerController::class, 'index'])->name('user.dashboard');
 });
+
+Route::get('/dbseed', [App\Http\Controllers\SiteController::class, 'dbseed']);

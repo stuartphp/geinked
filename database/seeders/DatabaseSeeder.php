@@ -566,5 +566,39 @@ class DatabaseSeeder extends Seeder
             ],
             ]
         );
+        $arr = ['images', 'images/blogs', 'images/brands', 'images/effects', 'images/products'];
+        for($i=0; $i<count($arr); $i++){
+            $data = $this->scanAllDir($arr[$i]);
+            //echo '<h4>'.$arr[$i].'</h4>';
+            foreach($data as $k=>$v)
+            {
+                if($v[0] != '/')
+                {
+                    //echo $v.'<br>';
+                    DB::table('images')->insert([
+                        'name'=>$v,
+                        'folder'=>$arr[$i],
+                        'path'=>$arr[$i].'/'.$v
+                    ]);
+                }
+            }
+        }
+    }
+    function scanAllDir($dir) {
+        $dir = public_path($dir);
+        $result = [];
+        foreach(scandir($dir) as $filename) {
+          if ($filename[0] === '.') continue;
+          $filePath = $dir . '/' . $filename;
+          if (is_dir($filePath)) {
+            //foreach ($this->scanAllDir($filePath) as $childFilename) {
+              $result[] = '/'.$filename; //. '/' . $childFilename;
+              //$result[] = $filename. '/' . $childFilename;
+           // }
+          } else {
+            $result[] = $filename;
+          }
+        }
+        return $result;
     }
 }
