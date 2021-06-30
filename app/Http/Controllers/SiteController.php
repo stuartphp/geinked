@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Cookie;
-// use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class SiteController extends Controller
 {
@@ -53,5 +53,12 @@ class SiteController extends Controller
     {
         return view('site.return');
     }
+
+    public function dbseed()
+    {
+        $f =DB::table('images')->groupBy('folder')->get();
+        dd($f);
+    }
+    
 
 }

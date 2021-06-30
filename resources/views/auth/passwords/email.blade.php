@@ -1,6 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.site')
 
 @section('content')
+<!--main area-->
+<main id="main" class="main-site left-sidebar">
+
+<div class="container">
+
+    <div class="wrap-breadcrumb">
+        <ul>
+            <li class="item-link"><a href="/" class="link">home</a></li>
+            <li class="item-link"><span>login</span></li>
+        </ul>
+    </div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -44,4 +55,6 @@
         </div>
     </div>
 </div>
+</div>
+</main>
 @endsection

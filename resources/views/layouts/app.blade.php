@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css')}}"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_style.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_style.css')}}?{{time()}}"/>
     @livewireStyles
 </head>
 <body>
@@ -25,6 +25,9 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link {{ request()->is('admin/dashboard') ? 'active' :'' }}" href="/admin/dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ request()->is('admin/crud') ? 'active' :'' }}" aria-current="page" href="{{ route('admin.curd') }}">Crud</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link {{ request()->is('admin/images') ? 'active' :'' }}" aria-current="page" href="/admin/images">Images</a>
@@ -83,8 +86,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <script>
-	window.addEventListener('alert', event => { 
-		toastr[event.detail.type](event.detail.message, event.detail.title ?? '') 
+	window.addEventListener('alert', event => {
+		toastr[event.detail.type](event.detail.message, event.detail.title ?? '')
 		toastr.options = {
 			"closeButton": true,
 			"progressBar": true,

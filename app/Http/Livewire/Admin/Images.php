@@ -4,25 +4,30 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\DB;
+use App\Models\Image;
 
 class Images extends Component
 {
     use WithFileUploads;
     public $photo;
-    public $folder;
+    public $folder=0;
+    public $folders=['images', 'images/blogs', 'images/brands', 'images/effects', 'images/products'];
     public $images;
     public $image;
     public $path;
+    public $showImg;
     public $detail;
 
     public function mount()
     {
-        $this->folder = 'images';
-        $this->images = $this->scanAllDir($this->folder);
+        
+        $this->images = $this->scanAllDir($this->folders[$this->folder]);
         $this->image='';
         $this->path='';
         $this->detail='';
     }
+
 
     public function save()
     {
@@ -46,11 +51,14 @@ class Images extends Component
         }
 
     }
-
-    public function updFolder($dir)
+    public function updatedFolder($id)
     {
-        $this->folder = $dir;
-        $this->images = $this->scanAllDir($dir);
+        if($id>'')
+        {
+            $this->folder = $id;
+            $this->images = $this->scanAllDir();
+        }
+         
     }
 
     public function render()
@@ -58,28 +66,17 @@ class Images extends Component
         return view('livewire.admin.images', ['images'=>$this->images]);
     }
 
-    function scanAllDir($dir) {
-        $dir = public_path($this->folder);
-        $result = [];
-        foreach(scandir($dir) as $filename) {
-          if ($filename[0] === '.') continue;
-          $filePath = $dir . '/' . $filename;
-          if (is_dir($filePath)) {
-            //foreach ($this->scanAllDir($filePath) as $childFilename) {
-              $result[] = '/'.$filename; //. '/' . $childFilename;
-            //}
-          } else {
-            $result[] = $filename;
-          }
-        }
-        return $result;
+    function scanAllDir() {
+        return Image::where('folder', $this->folders[$this->folder])->get();
     }
 
     public function showImage($img)
     {
-
-        $this->path =public_path($this->folder.'/'.$img);
+        // dd($img);
+        $this->path =public_path($img);
         $image = getimagesize($this->path);
+        $this->showImg =$img; 
+        //dd($this->showImg);
         $this->image = $img;
         $this->detail = $image[3];
         $this->dispatchBrowserEvent('modal', ['modal'=>'imageModal', 'action'=>'show']);
