@@ -59,4 +59,6 @@ body{
 .pointer {
     cursor: pointer;
 }
-
+a.dropdown-item {
+    font-size: 0.75rem;
+}

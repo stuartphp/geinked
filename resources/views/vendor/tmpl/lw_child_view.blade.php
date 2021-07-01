@@ -1,5 +1,5 @@
 <div>
-    <div class="modal" tabindex="-1" id="addModal">
+    <div class="modal" tabindex="-1" id="addModal" wire:ignore.self>
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-lg">
@@ -16,7 +16,7 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" id="editModal">
+    <div class="modal" tabindex="-1" id="editModal" wire:ignore.self>
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-lg">
@@ -33,7 +33,7 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" id="delModal">
+    <div class="modal" tabindex="-1" id="delModal" wire:ignore.self>
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-lg">
