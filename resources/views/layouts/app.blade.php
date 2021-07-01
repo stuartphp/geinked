@@ -27,13 +27,13 @@
                 <a class="nav-link {{ request()->is('admin/dashboard') ? 'active' :'' }}" href="/admin/dashboard">Dashboard</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ request()->is('admin/crud') ? 'active' :'' }}" aria-current="page" href="{{ route('admin.curd') }}">Crud</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link {{ request()->is('admin/images') ? 'active' :'' }}" aria-current="page" href="/admin/images">Images</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link {{ request()->is('admin/categories') ? 'active' :'' }}" aria-current="page" href="/admin/categories">Categories</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ request()->is('admin/users') ? 'active' :'' }}" aria-current="page" href="/admin/users">Users</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

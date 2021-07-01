@@ -11,14 +11,11 @@ use Livewire\WithPagination;
 class Categories extends Component
 {
     use WithPagination;
-
     protected $paginationTheme = 'bootstrap';
-    public $search = '';
-    public $page = 1;
-    protected $queryString = [
-        'search' => ['except' => ''],
-        'page' => ['except' => 1],
-    ];
+
+    protected $listeners = ['refresh' => '$refresh'];
+    public $sortBy = 'name';
+    public $sortAsc = true;
 
     public $parent;
 
