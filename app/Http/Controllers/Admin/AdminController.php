@@ -22,6 +22,11 @@ class AdminController extends Controller
         return view('admin.images');
     }
 
+    public function products()
+    {
+        return view('admin.products');
+    }
+
     public function users()
     {
         return view('admin.users');
