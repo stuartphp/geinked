@@ -57,7 +57,7 @@
                                 <div class="col-xs-4"><a href="#" wire:click.prevet="wish('{{ $product->id }}')" class="btn add-to-cart"><i class="fa fa-heart"></i></a></div>
                                 <div class="col-xs-8"><a href="#" wire:click.prevent="store('{{ $product->id }}', '{{ $product->name }}', '{{ $product->regular_price }}')" class="btn add-to-cart">Add To Cart</a></div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </li>
@@ -72,39 +72,7 @@
         </div>
 
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
-            <div class="widget mercado-widget categories-widget">
-                <h2 class="widget-title">All Categories</h2>
-                <div class="widget-content">
-                    <ul class="list-category">
-                        @foreach ($categories as $k=>$v )
-                            @if ($k == 0)
-                                @foreach ( $v as $q=>$w)
-                                    @if (array_key_exists($q, $categories))
-                                    <li class="category-item has-child-cate @if($parent_slug==$w[1]) open @endif">
-                                        <a href="/shop/{{ $w[1] }}" class="@if($category_slug==$w[1]) active @endif">{{ $w[0] }} </a>
-									    <span class="toggle-control">+</span>
-                                        <ul class="sub-cate">
-                                            @foreach ($categories as $e=>$r )
-                                                @if ($e==$q)
-                                                    @foreach ($r as $t=>$y )
-                                                        <li class="category-item"><a href="/shop/{{ $w[1] }}/{{ $y[1] }}" class=" @if($category_slug==$y[1]) active @endif" >{{ $y[0] }}</a></li>
-                                                    @endforeach
-                                                @endif
-                                            @endforeach
-                                        </ul>
-                                    </li>
-                                    @else
-                                    <li class="category-item">
-                                        <a href="/shop/{{ $w[1] }}" class=" @if($category_slug==$w[1]) active @endif">{{ $w[0] }}</a>
-                                    </li>
-                                    @endif
-                                @endforeach
-                            @endif
-                        @endforeach
-
-                    </ul>
-                </div>
-            </div>
+            @livewire('site.sidebar')
             @livewire('products.popular')
 
         </div><!--end sitebar-->

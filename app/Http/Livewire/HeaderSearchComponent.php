@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Category;
+use App\Models\ProductCategory;
 
 class HeaderSearchComponent extends Component
 {
@@ -26,7 +26,7 @@ class HeaderSearchComponent extends Component
 
     public function categories()
     {
-        $cats = Category::where('is_active', 1)->orderBy('parent_id', 'asc')->orderBy('name', 'asc')->where('is_active',1)->get();
+        $cats = ProductCategory::where('is_active', 1)->orderBy('parent_id', 'asc')->orderBy('name', 'asc')->where('is_active',1)->get();
         $items=[];
         foreach ($cats as $c)
         {
