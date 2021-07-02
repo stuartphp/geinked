@@ -10,28 +10,42 @@ class Product extends Model
     use HasFactory;
     protected $table = 'products';
     protected $fillable =[
+        'code',
         'name',
-        'slug',
         'short_description',
-        'long_description',
+        'description',
+        'slug',
+        'keywords',
         'category_id',
-        'sku',
-        'stock_status',
+        'unit_id',
+        'cost',
         'on_hand',
-        'image',
-        'images',
-        'unit',
+        'main_image',
+        'min_order_quantity',
+        'viewed',
         'expire',
-        'regular_price',
-        'expire_price',
-        'special_price',
-        'special_start',
-        'special_end',
+        'is_service',
+        'is_feature',
         'is_active'
     ];
 
     public function category()
     {
-        return $this->belongsTo(\App\Models\Category::class);
+        return $this->hasOne(\App\Models\Category::class);
+    }
+
+    public function options()
+    {
+        return $this->hasMany(ProductOption::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
+
+    public function unit()
+    {
+        return $this->hasOne(ProductUnit::class);
     }
 }

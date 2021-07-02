@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Category;
+use App\Models\ProductCategory;
 use App\Models\Product;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -53,7 +53,7 @@ class ShopComponent extends Component
                 $this->parent_slug = $c->p_slug;
             }else{
                 $this->category_slug=$cat;
-                $c = Category::where('slug', $cat)->first();
+                $c = ProductCategory::where('slug', $cat)->first();
             }
 
             $this->category_id=$c->id;
@@ -110,19 +110,7 @@ class ShopComponent extends Component
                 break;
         }
 
-        $categories = $this->categories();
-        return view('livewire.shop-component', compact('products', 'categories'));
-    }
-
-    public function categories()
-    {
-        $cats = Category::where('is_active', 1)->orderBy('parent_id', 'asc')->orderBy('name', 'asc')->where('is_active',1)->get();
-        $items=[];
-        foreach ($cats as $c)
-        {
-            $items[$c->parent_id][$c->id]=[$c->name, $c->slug];
-        }
-        return $items;
+        return view('livewire.shop-component', compact('products'));
     }
 
 }
