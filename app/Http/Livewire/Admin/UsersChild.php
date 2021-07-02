@@ -16,12 +16,13 @@ class UsersChild extends Component
     public $item;
 
     protected $rules = [
-        'item.company_id' => '',
-        'item.name' => '',
+        'item.name' => 'required',
+        'item.email' => 'required|unique:users.email',
+        'item.mobile' => 'required',
+        'item.is_admin' => 'boolean',
     ];
 
     protected $validationAttributes = [
-        'item.company_id' => 'CompanyId',
         'item.name' => 'Name',
     ];
 
@@ -45,6 +46,7 @@ class UsersChild extends Component
         $this->dispatchBrowserEvent('modal', ['modal'=>'delModal', 'action'=>'hide']);
         $this->primaryKey = '';
         $this->reset(['item']);
+        $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Deleted']);
         $this->emitTo('product-units', 'refresh');
     }
 
@@ -59,10 +61,10 @@ class UsersChild extends Component
     {
         $this->validate();
         User::create([
-            'company_id' => $this->item['company_id'],
             'name' => $this->item['name'],
         ]);
         $this->dispatchBrowserEvent('modal', ['modal'=>'addModal', 'action'=>'hide']);
+        $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Created']);
         $this->emitTo('product-units', 'refresh');
     }
 
@@ -78,6 +80,7 @@ class UsersChild extends Component
         $this->validate();
         $this->item->save();
         $this->dispatchBrowserEvent('modal', ['modal'=>'editModal', 'action'=>'hide']);
+        $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Updated']);
         $this->primaryKey = '';
         $this->emitTo('product-units', 'refresh');
     }

@@ -48,7 +48,7 @@ class SiteController extends Controller
     {
         return view('site.terms');
     }
-    
+
     public function return()
     {
         return view('site.return');
@@ -56,9 +56,11 @@ class SiteController extends Controller
 
     public function dbseed()
     {
-        $f =DB::table('images')->groupBy('folder')->get();
-        dd($f);
+        //$f =DB::table('images')->groupBy('folder')->get();
+        //dd($f);
+        $users = DB::table('users')->get();
+        dd($users);
     }
-    
+
 
 }

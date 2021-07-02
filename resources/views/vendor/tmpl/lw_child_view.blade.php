@@ -11,7 +11,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default btn-sm" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary btn-sm">Save</button>
+                    <button type="button" class="btn btn-primary btn-sm" wire:click="createItem()">Save</button>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default btn-sm" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-warning btn-sm">Update</button>
+                    <button type="button" class="btn btn-warning btn-sm" wire:click="editItem()">Update</button>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default btn-sm" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                    <button type="button" class="btn btn-danger btn-sm" wire:click="deleteItem()">Delete</button>
                 </div>
             </div>
         </div>

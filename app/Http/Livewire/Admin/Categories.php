@@ -16,10 +16,19 @@ class Categories extends Component
     protected $listeners = ['refresh' => '$refresh'];
     public $sortBy = 'name';
     public $sortAsc = true;
+    public $searchTerm='';
 
+    public function updatedSearchTerm()
+    {
+        $this->resetPage();
+    }
     public function render()
     {
         $results = $this->query()
+            ->when($this->searchTerm, function($q){
+                $q->where('name', 'like', '%'.$this->searchTerm.'%')
+                ->orWhere('slug', 'like', '%'.$this->searchTerm.'%');
+            })
             ->orderBy($this->sortBy, $this->sortAsc ? 'ASC' : 'DESC')
             ->paginate(15);
         return view('livewire.admin.categories',[

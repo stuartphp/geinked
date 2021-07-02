@@ -27,6 +27,11 @@ class AdminController extends Controller
         return view('admin.products');
     }
 
+    public function units()
+    {
+        return view('admin.units');
+    }
+
     public function users()
     {
         return view('admin.users');
