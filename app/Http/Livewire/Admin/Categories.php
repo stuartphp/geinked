@@ -2,9 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Category;
-use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
+use App\Models\ProductCategory;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -46,10 +44,10 @@ class Categories extends Component
 
     public function query()
     {
-        return Category::query();
+        return ProductCategory::query();
     }
     public function getCategories()
     {
-        return Category::pluck('name', 'id')->toArray();
+        return ProductCategory::pluck('name', 'id')->toArray();
     }
 }

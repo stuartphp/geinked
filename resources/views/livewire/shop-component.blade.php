@@ -47,18 +47,22 @@
                         <div class="product product-style-3 equal-elem ">
                             <div class="product-thumnail">
                                 <a href="{{ route('product.detail', ['slug'=>$product->slug]) }}" title="{{ $product->name }}">
-                                    <figure><img src="{{ asset('images/products')}}/{{ $product->image }}" alt="{{ $product->name }}"></figure>
+                                    <figure><img src="{{ asset('images/products')}}/{{ $product->main_image }}" alt="{{ $product->name }}"></figure>
                                 </a>
                             </div>
                             <div class="product-info">
                                 <a href="{{ route('product.detail', ['slug'=>$product->slug]) }}" class="product-name"><span>{{ $product->name }}</span></a>
-                                <div class="wrap-price"><span class="product-price">R {{ $product->regular_price }}</span></div>
-                                <div class="row">
-                                <div class="col-xs-4"><a href="#" wire:click.prevet="wish('{{ $product->id }}')" class="btn add-to-cart"><i class="fa fa-heart"></i></a></div>
-                                <div class="col-xs-8"><a href="#" wire:click.prevent="store('{{ $product->id }}', '{{ $product->name }}', '{{ $product->regular_price }}')" class="btn add-to-cart">Add To Cart</a></div>
+                                <div class="wrap-price"><span class="product-price">R
+                                    @if ($product->options[0]->special_end != NULL && strtotime($product->options[0]->special_end) > time())
+                                    {{ number_format(($product->options[0]->special/100), 2) }}
+                                    @else
+                                    {{ number_format(($product->options[0]->price/100), 2) }}
+                                    @endif
+                                </span></div>
+
+                                <a href="#" wire:click.prevent="store('{{ $product->id }}', '{{ $product->name }}', '{{ $product->regular_price }}')" class="btn add-to-cart">Add To Cart</a>
                                 </div>
 
-                            </div>
                         </div>
                     </li>
                     @endforeach

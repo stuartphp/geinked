@@ -35,7 +35,11 @@ Route::prefix('admin')->middleware(['auth', 'is_admin', 'web'])->group(function 
     Route::get('dashboard', [App\Http\Controllers\Admin\AdminController::class, 'dashboard'] )->name('admin.dashboard');
     Route::get('images',[App\Http\Controllers\Admin\AdminController::class, 'categories'])->name('admin.categories');
     Route::get('categories',[App\Http\Controllers\Admin\AdminController::class, 'images'])->name('admin.images');
-    Route::get('products',[App\Http\Controllers\Admin\AdminController::class, 'products'])->name('admin.products');
+    Route::prefix('products')->group(function () {
+        Route::get('/',[App\Http\Controllers\Admin\AdminController::class, 'products'])->name('admin.products');
+        Route::get('/detail/{id}',[App\Http\Controllers\Admin\ProductsController::class, 'detail'])->name('admin.products.detail');
+    });
+
     Route::get('units',[App\Http\Controllers\Admin\AdminController::class, 'units'])->name('admin.units');
     Route::get('users',[App\Http\Controllers\Admin\AdminController::class, 'users'])->name('admin.users');
 

@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
-use App\Models\Category;
+use App\Models\ProductCategory;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
@@ -21,7 +21,7 @@ class CategoriesChild extends Component
     public function rules(){
         return [
             'item.name' => 'required',
-            'item.slug' => ['required', Rule::unique('categories', 'slug')->ignore($this->primaryKey)],
+            'item.slug' => ['required', Rule::unique('product_categories', 'slug')->ignore($this->primaryKey)],
             'item.parent_id' => 'required',
             'item.is_active' => 'boolean',
         ];
@@ -57,7 +57,7 @@ class CategoriesChild extends Component
 
     public function deleteItem()
     {
-        Category::destroy($this->primaryKey);
+        ProductCategory::destroy($this->primaryKey);
         $this->dispatchBrowserEvent('modal', ['modal'=>'delModal', 'action'=>'hide']);
         $this->primaryKey = '';
         $this->reset(['item']);
@@ -75,7 +75,7 @@ class CategoriesChild extends Component
     public function createItem()
     {
         $this->validate();
-        Category::create([
+        ProductCategory::create([
             'name' => $this->item['name'],
             'parent_id' => $this->item['parent_id'],
             'slug' => $this->item['slug'],
@@ -86,7 +86,7 @@ class CategoriesChild extends Component
         $this->emitTo('admin.categories', 'refresh');
     }
 
-    public function showEditForm(Category $item)
+    public function showEditForm(ProductCategory $item)
     {
         $this->resetErrorBag();
         $this->item = $item;
@@ -105,6 +105,6 @@ class CategoriesChild extends Component
     }
     public function getCategories()
     {
-        return Category::orderBy('parent_id')->orderBy('name')->get();
+        return ProductCategory::orderBy('parent_id')->orderBy('name')->get();
     }
 }

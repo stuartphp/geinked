@@ -26,7 +26,7 @@
                             <td>{{ $result->stock_status }}</td>
                             <td>{{ ($result->is_active==1) ? 'Yes' : 'No' }}</td>
                             <td class="text-end">
-                                <a href="#" title="Edit" wire:click="$emitTo('admin.products-child', 'showEditForm',  {{ $result->id}});"><i class="fa fa-edit text-lg text-default px-2"></i></a>
+                                <a href="/admin/products/detail/{{ $result->id}}" title="Edit"><i class="fa fa-edit text-lg text-default px-2"></i></a>
                                 <a href="#" title="Delete" wire:click="$emitTo('admin.products-child', 'showDeleteForm',  {{ $result->id}});"><i class="fa fa-trash text-lg text-danger px-2"></i></a>
                             </td>
                         </tr>
@@ -38,6 +38,4 @@
             {{ $results->links() }}
         </div>
     </div>
-    @livewire('admin.products-child')
-
 </div>

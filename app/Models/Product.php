@@ -17,6 +17,7 @@ class Product extends Model
         'slug',
         'keywords',
         'category_id',
+        'category_parent_id',
         'unit_id',
         'cost',
         'on_hand',
@@ -31,7 +32,7 @@ class Product extends Model
 
     public function category()
     {
-        return $this->hasOne(\App\Models\Category::class);
+        return $this->belongsTo(ProductCategory::class);
     }
 
     public function options()
@@ -46,6 +47,10 @@ class Product extends Model
 
     public function unit()
     {
-        return $this->hasOne(ProductUnit::class);
+        return $this->belongsTo(ProductUnit::class);
+    }
+    public function reviews()
+    {
+        return $this->hasMany(ProductReview::class)->where('is_approved', 1);
     }
 }

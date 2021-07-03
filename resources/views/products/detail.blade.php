@@ -18,11 +18,11 @@
                     <div class="detail-media">
                         <div class="product-gallery">
                           <ul class="slides">
-
-                            <li data-thumb="{{ asset('images/products') }}/{{ $product->image }}">
-                                <img src="{{ asset('images/products') }}/{{ $product->image }}" alt="product thumbnail" />
-                            </li>
-
+                            @foreach ($product->images as $image )
+                                <li data-thumb="{{ asset('images/products') }}/{{ $image->image }}">
+                                    <img src="{{ asset('images/products') }}/{{ $image->image }}" alt="product thumbnail" />
+                                </li>
+                            @endforeach
                           </ul>
                         </div>
                     </div>
@@ -33,16 +33,11 @@
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
-                            <a href="#" class="count-review">(05 review)</a>
+                            <a href="#" class="count-review">({{ $product->reviews->count() }} reviews)</a>
                         </div>
                         <h2 class="product-name">{{ $product->name }}</h2>
                         <div class="short-desc">
                             {{ $product->short_description }}
-                            {{-- <ul>
-                                <li>7,9-inch LED-backlit, 130Gb</li>
-                                <li>Dual-core A7 with quad-core graphics</li>
-                                <li>FaceTime HD Camera 7.0 MP Photos</li>
-                            </ul> --}}
                         </div>
                         <div class="wrap-social">
                             <a class="link-socail" href="#"><img src="{{ asset('images/social-list.png') }}" alt=""></a>
@@ -65,49 +60,49 @@
                     <div class="advance-info">
                         <div class="tab-control normal">
                             <a href="#description" class="tab-control-item active">description</a>
-                            <a href="#add_infomation" class="tab-control-item">Addtional Infomation</a>
                             <a href="#review" class="tab-control-item">Reviews</a>
                         </div>
                         <div class="tab-contents">
                             <div class="tab-content-item active" id="description">
-                                {{ $product->long_description }}
-                            </div>
-                            <div class="tab-content-item " id="add_infomation">
-                                <table class="shop_attributes">
-                                    <tbody>
-                                        <tr>
-                                            <th>Weight</th><td class="product_weight">1 kg</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Dimensions</th><td class="product_dimensions">12 x 15 x 23 cm</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Color</th><td><p>Black, Blue, Grey, Violet, Yellow</p></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                {{ $product->description }}
                             </div>
                             <div class="tab-content-item " id="review">
-
                                 <div class="wrap-review-form">
-
                                     <div id="comments">
-                                        <h2 class="woocommerce-Reviews-title">01 review for <span>Radiant-360 R6 Chainsaw Omnidirectional [Orage]</span></h2>
                                         <ol class="commentlist">
+                                            @foreach ($product->reviews as $review)
+                                                <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
+                                                    <div id="comment-20" class="comment_container">
+                                                        <div class="comment-text">
+                                                            <div class="star-rating">
+                                                                <span class="width-80-percent">Rated <strong class="rating">{{ $review->rating }}</strong> out of 5</span>
+                                                            </div>
+                                                            <p class="meta">
+                                                                <strong class="woocommerce-review__author">{{ $review->alias }}</strong>
+                                                                <span class="woocommerce-review__dash">–</span>
+                                                                <time class="woocommerce-review__published-date">{{ $review->action_date }}</time>
+                                                            </p>
+                                                            <div class="description">
+                                                                {!! $review->review !!}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endforeach
                                             <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
                                                 <div id="comment-20" class="comment_container">
                                                     <img alt="" src="{{ asset('images/author-avata.jpg')}}" height="80" width="80">
                                                     <div class="comment-text">
                                                         <div class="star-rating">
-                                                            <span class="width-80-percent">Rated <strong class="rating">5</strong> out of 5</span>
+                                                            <span class="width-80-percent">Rated <strong class="rating">4</strong> out of 5</span>
                                                         </div>
                                                         <p class="meta">
-                                                            <strong class="woocommerce-review__author">admin</strong>
+                                                            <strong class="woocommerce-review__author">CustomerCare</strong>
                                                             <span class="woocommerce-review__dash">–</span>
-                                                            <time class="woocommerce-review__published-date" datetime="2008-02-14 20:00" >Tue, Aug 15,  2017</time>
+                                                            <time class="woocommerce-review__published-date">{{ date('Y-m-d') }}</time>
                                                         </p>
                                                         <div class="description">
-                                                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                                                            {!! $review->review !!}
                                                         </div>
                                                     </div>
                                                 </div>

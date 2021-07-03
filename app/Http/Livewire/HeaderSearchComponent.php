@@ -26,7 +26,7 @@ class HeaderSearchComponent extends Component
 
     public function categories()
     {
-        $cats = ProductCategory::where('is_active', 1)->orderBy('parent_id', 'asc')->orderBy('name', 'asc')->where('is_active',1)->get();
+        $cats = ProductCategory::orderBy('parent_id', 'asc')->orderBy('name', 'asc')->where('is_active',1)->get();
         $items=[];
         foreach ($cats as $c)
         {
